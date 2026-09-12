@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacidad de Pastillero</title>
+<meta name="description" content="Política de privacidad de Pastillero, la app de recordatorios de medicamentos de JPProyectos.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap');
+
+  :root {
+    --bg: #F5FBFA;
+    --surface: #FFFFFF;
+    --surface-2: #EEF7F5;
+    --text: #0F1E1C;
+    --muted: #55716D;
+    --border: #DCEAE7;
+    --accent: #0D9488;
+    --accent-ink: #FFFFFF;
+    --shadow: 0 1px 2px rgba(15,30,28,0.04), 0 8px 24px rgba(15,30,28,0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B1615;
+      --surface: #11201E;
+      --surface-2: #162624;
+      --text: #E8F3F1;
+      --muted: #96B0AC;
+      --border: #1E3330;
+      --accent: #35C4B4;
+      --accent-ink: #06211E;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B1615;
+    --surface: #11201E;
+    --surface-2: #162624;
+    --text: #E8F3F1;
+    --muted: #96B0AC;
+    --border: #1E3330;
+    --accent: #35C4B4;
+    --accent-ink: #06211E;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .pagina {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  .volver {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 28px;
+  }
+  .volver:hover { color: var(--accent); }
+  .marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .marca-icono {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .marca-icono svg { width: 22px; height: 22px; }
+  .marca-nombre {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: clamp(32px, 5.5vw, 44px);
+    line-height: 1.1;
+    margin: 0 0 14px;
+    text-wrap: balance;
+  }
+
+  .metadatos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .metadato {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .metadato-etiqueta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .metadato-valor { font-size: 14px; font-weight: 500; }
+
+  .resumen {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 44px;
+  }
+  .resumen p { margin: 0; font-size: 15.5px; line-height: 1.6; color: var(--text); }
+  .resumen strong { color: var(--accent); }
+
+  section.clausula {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 4px 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section.clausula:last-of-type { border-bottom: none; }
+
+  .clausula-numero {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    padding-top: 3px;
+  }
+
+  .clausula-cuerpo h2 {
+    font-family: 'Lora', Georgia, serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .clausula-cuerpo p, .clausula-cuerpo li {
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--text);
+    max-width: 62ch;
+  }
+  .clausula-cuerpo p + p { margin-top: 12px; }
+  .clausula-cuerpo ul { margin: 10px 0 0; padding-left: 20px; }
+  .clausula-cuerpo li + li { margin-top: 8px; }
+  .clausula-cuerpo .muted { color: var(--muted); font-size: 14px; }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 4px 6px 0 0;
+  }
+  .chip svg { width: 13px; height: 13px; color: var(--accent); }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.6; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 520px) {
+    section.clausula { grid-template-columns: 1fr; }
+    .clausula-numero { padding-top: 0; }
+  }
+</style>
+
+</head>
+<body>
+<div class="pagina">
+  <a href="../" class="volver">← JPProyectos</a>
+  <div class="marca">
+    <div class="marca-icono">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5 3.5 13.5a5 5 0 1 1 7-7l9 9a5 5 0 1 1-7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+    </div>
+    <div class="marca-nombre">Pastillero</div>
+  </div>
+
+  <h1>Política de Privacidad</h1>
+
+  <div class="metadatos">
+    <div class="metadato">
+      <span class="metadato-etiqueta">Vigencia</span>
+      <span class="metadato-valor" id="fecha-vigencia">7 de septiembre de 2026</span>
+    </div>
+    <div class="metadato">
+      <span class="metadato-etiqueta">Versión de la app</span>
+      <span class="metadato-valor">1.0.0</span>
+    </div>
+    <div class="metadato">
+      <span class="metadato-etiqueta">Contacto</span>
+      <span class="metadato-valor">juanpriveron@gmail.com</span>
+    </div>
+  </div>
+
+  <div class="resumen">
+    <p><strong>En una frase:</strong> Pastillero guarda todo — tu ficha, tus medicamentos y tu historial de tomas — únicamente en tu propio celular. Nada se envía a ningún servidor, no hay cuentas de usuario, no hay analítica y no compartimos ni vendemos información a nadie.</p>
+  </div>
+
+  <section class="clausula">
+    <span class="clausula-numero">01</span>
+    <div class="clausula-cuerpo">
+      <h2>Qué datos maneja la app</h2>
+      <p>Pastillero es un organizador de medicamentos y suplementos. Para funcionar, guarda en el almacenamiento privado de tu celular:</p>
+      <ul>
+        <li>Los datos de la ficha de cada persona que cargues (nombre, fecha de nacimiento, grupo sanguíneo, alergias, condiciones médicas y contacto de emergencia).</li>
+        <li>Los medicamentos y suplementos cargados, con sus horarios, dosis y — si lo activás — el stock disponible.</li>
+        <li>El historial de tomas: qué se marcó como tomado u omitido, y cuándo.</li>
+        <li>Si activás el bloqueo de la app, el PIN que elijas (guardado también solo en el celular).</li>
+      </ul>
+      <p class="muted">Toda esta información es la que vos mismo cargás a mano. La app no accede a ningún otro dato del celular ni de tus contactos.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">02</span>
+    <div class="clausula-cuerpo">
+      <h2>Dónde vive esa información</h2>
+      <p>Todo se guarda exclusivamente en el almacenamiento local del dispositivo, usando el almacenamiento privado del sistema operativo. Pastillero no tiene servidor propio, no envía datos por internet en ningún momento y no funciona con una cuenta de usuario ni inicio de sesión.</p>
+      <p>Esto también significa que si desinstalás la app, cambiás de celular o restaurás de fábrica sin haber exportado una copia, esa información se pierde: no hay una copia en la nube que la recupere.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">03</span>
+    <div class="clausula-cuerpo">
+      <h2>Copias de seguridad</h2>
+      <p>Desde Ajustes podés exportar manualmente un archivo con todos tus datos, para guardarlo donde prefieras (por ejemplo, en tu email o en un servicio de almacenamiento en la nube que ya uses). Ese archivo se genera y se comparte usando las funciones nativas de tu celular; Pastillero no tiene acceso a dónde termine guardado ni a su contenido una vez compartido.</p>
+      <p>La persona usuaria es responsable de guardar y proteger ese archivo, ya que contiene información de salud.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">04</span>
+    <div class="clausula-cuerpo">
+      <h2>Permisos que pide la app</h2>
+      <p>Pastillero pide los siguientes permisos del sistema operativo, y solo para lo que indican:</p>
+      <div>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>Notificaciones</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Face ID / huella</span>
+      </div>
+      <p style="margin-top:14px">Las notificaciones se usan únicamente para avisarte a la hora programada de cada toma; se generan y procesan en el propio celular. Face ID o huella dactilar (si los activás en Ajustes) se usan solo para desbloquear la app localmente, a través de las funciones de seguridad del sistema operativo: Pastillero nunca recibe ni guarda tu huella o tu rostro, esa información la maneja el propio sistema operativo.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">05</span>
+    <div class="clausula-cuerpo">
+      <h2>Terceros, analítica y publicidad</h2>
+      <p>Pastillero no integra herramientas de analítica, medición de uso, seguimiento publicitario ni SDKs de terceros. No mostramos anuncios. No compartimos información con ninguna empresa, porque la información nunca sale del dispositivo.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">06</span>
+    <div class="clausula-cuerpo">
+      <h2>Menores de edad</h2>
+      <p>Un cuidador puede usar Pastillero para gestionar los medicamentos de otra persona, incluida una hija, hijo o familiar menor de edad, siempre bajo la responsabilidad del adulto que carga esa ficha. La app no está dirigida a que un menor la use ni la configure por sí mismo.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">07</span>
+    <div class="clausula-cuerpo">
+      <h2>Aviso importante sobre el contenido</h2>
+      <p>Pastillero es una herramienta de organización y recordatorio. No brinda consejo médico, no reemplaza a un profesional de la salud y no debe usarse para tomar decisiones sobre tratamientos. Ante cualquier duda sobre una medicación, consultá a tu médico o farmacéutico.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">08</span>
+    <div class="clausula-cuerpo">
+      <h2>Eliminar tus datos</h2>
+      <p>Podés borrar la información de una ficha (y sus medicamentos e historial) en cualquier momento desde la propia app, tocando "Eliminar ficha". Desinstalar la app elimina también todo lo que tenía guardado localmente, ya que no queda ninguna copia en ningún otro lugar.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">09</span>
+    <div class="clausula-cuerpo">
+      <h2>Cambios a esta política</h2>
+      <p>Si esta política cambia, se actualizará la fecha de vigencia al principio de esta misma página. Te recomendamos revisarla de tanto en tanto si te interesa saber cómo maneja tus datos la app.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Pastillero — organizador personal de medicamentos y suplementos, de <a href="../">JPProyectos</a>.</p>
+    <p>Consultas sobre esta política: <a href="mailto:juanpriveron@gmail.com">juanpriveron@gmail.com</a></p>
+  </footer>
+</div>
+</body>
+</html>
