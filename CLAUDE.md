@@ -31,10 +31,10 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - **Política de Pastillero:** se aclaró que la app consulta a los servidores de Expo si hay actualizaciones (solo datos técnicos) y se cambió la vigencia al 18/10/2026.
 - **Probado:** capturas a 1280 px y 390 px, claro y oscuro, sin desborde horizontal.
 - **Publicado** el 2026-10-18 (PR #1) con el OK del usuario: contacto solo por mail, sin WhatsApp (decisión del usuario). Se sumó un CI que revisa los enlaces internos (el control de merges pide checks en verde). Verificado en vivo: portada, imagen para compartir, logo y política nueva.
-- **Pendiente:** dar de alta el sitio en Google Search Console si se quiere (el archivo de verificación ya está).
+- Search Console: hecho (ver la entrada siguiente).
 
 ### 2026-10-18 — Seguridad, empresas grandes y Google (Claude Code, Opus)
 - **Servicios:** cuarta tarjeta "Empresas grandes e instituciones" (instalación en sus servidores, ingreso con usuarios de la institución, auditoría), pedido del usuario para dejar esa puerta abierta sin nombrar trabajos honorarios.
 - **Seguridad:** sin JavaScript en las páginas (el año del pie quedó fijo) y política de seguridad por `<meta>` que prohíbe scripts, formularios y conexiones; `referrer` estricto. Probado: sin errores en consola y las fuentes cargan. GitHub Pages ya daba HTTPS obligatorio y HSTS.
 - **Repo público:** se sacó de este archivo el nombre del cliente que se había anotado en el PR #1 (sigue en el historial de git de ese commit; borrarlo de ahí requiere reescribir el historial, decisión del usuario).
-- **Google:** `sitemap.xml` y `robots.txt` para dar de alta el sitio en Search Console.
+- **Google:** `sitemap.xml` y `robots.txt`. El sitio ya estaba dado de alta en Search Console; el 2026-10-18 se envió el sitemap y se pidió reindexar la portada.
