@@ -28,4 +28,5 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - **Qué:** rediseño completo de `index.html` con el logo nuevo (A3, la consola con la J), colores tinta y celeste, y secciones de servicios, trabajos y productos (caso de cliente sin nombre, Gestor UY, Pastillero), forma de trabajo, cuidado de los datos y contacto. Favicon, ícono de iPhone e imagen para compartir.
 - **Política de Pastillero:** se aclaró que la app consulta a los servidores de Expo si hay actualizaciones (solo datos técnicos) y se cambió la vigencia al 18/10/2026.
 - **Probado:** capturas a 1280 px y 390 px, claro y oscuro, sin desborde horizontal.
+- **Publicado** el 2026-10-18 (PR #1) con el OK del usuario: contacto solo por mail, sin WhatsApp (decisión del usuario). Se sumó un CI que revisa los enlaces internos (el control de merges pide checks en verde). Verificado en vivo: portada, imagen para compartir, logo y política nueva.
 - **Pendiente:** dar de alta el sitio en Google Search Console si se quiere (el archivo de verificación ya está).
