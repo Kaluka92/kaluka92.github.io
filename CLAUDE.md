@@ -17,6 +17,7 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - `google70995f6349117a4d.html` — verificación de Google Search Console. No borrar.
 
 ## Cosas a tener en cuenta
+- CI (`.github/workflows/ci.yml`): revisa que los enlaces e imágenes internas existan.
 - `main` = publicado: los cambios van por rama + PR y el usuario los ve antes de mergear (es público).
 - El cliente del caso "alquiler de maquinaria y obras" es Marruá: no nombrarlo sin permiso.
 - No publicar el teléfono sin que el usuario lo pida; el contacto público es el mail.
