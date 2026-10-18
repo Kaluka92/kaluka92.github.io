@@ -18,8 +18,10 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 
 ## Cosas a tener en cuenta
 - CI (`.github/workflows/ci.yml`): revisa que los enlaces e imágenes internas existan.
+- Seguridad: las páginas no tienen JavaScript y una política de seguridad (`<meta http-equiv="Content-Security-Policy">`) prohíbe scripts. Si algún día hace falta uno, ajustar esa política. El año del pie es fijo: cambiarlo cada enero.
+- `sitemap.xml` y `robots.txt` para Google: al sumar una página, agregarla al sitemap.
 - `main` = publicado: los cambios van por rama + PR y el usuario los ve antes de mergear (es público).
-- El cliente del caso "alquiler de maquinaria y obras" es Marruá: no nombrarlo sin permiso.
+- **El repo es público:** nada de nombres de clientes, datos de contacto privados ni notas internas en este archivo ni en ningún otro. Los casos de clientes van sin nombre salvo permiso escrito.
 - No publicar el teléfono sin que el usuario lo pida; el contacto público es el mail.
 
 ## Bitácora
@@ -30,3 +32,9 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - **Probado:** capturas a 1280 px y 390 px, claro y oscuro, sin desborde horizontal.
 - **Publicado** el 2026-10-18 (PR #1) con el OK del usuario: contacto solo por mail, sin WhatsApp (decisión del usuario). Se sumó un CI que revisa los enlaces internos (el control de merges pide checks en verde). Verificado en vivo: portada, imagen para compartir, logo y política nueva.
 - **Pendiente:** dar de alta el sitio en Google Search Console si se quiere (el archivo de verificación ya está).
+
+### 2026-10-18 — Seguridad, empresas grandes y Google (Claude Code, Opus)
+- **Servicios:** cuarta tarjeta "Empresas grandes e instituciones" (instalación en sus servidores, ingreso con usuarios de la institución, auditoría), pedido del usuario para dejar esa puerta abierta sin nombrar trabajos honorarios.
+- **Seguridad:** sin JavaScript en las páginas (el año del pie quedó fijo) y política de seguridad por `<meta>` que prohíbe scripts, formularios y conexiones; `referrer` estricto. Probado: sin errores en consola y las fuentes cargan. GitHub Pages ya daba HTTPS obligatorio y HSTS.
+- **Repo público:** se sacó de este archivo el nombre del cliente que se había anotado en el PR #1 (sigue en el historial de git de ese commit; borrarlo de ahí requiere reescribir el historial, decisión del usuario).
+- **Google:** `sitemap.xml` y `robots.txt` para dar de alta el sitio en Search Console.

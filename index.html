@@ -10,6 +10,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="marca/marca-32.png">
 <link rel="apple-touch-icon" href="marca/marca-192.png">
 <meta name="theme-color" content="#0f1b2d">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_UY">
 <meta property="og:title" content="JPProyectos · Software a medida en Uruguay">
@@ -79,6 +81,7 @@ section.bloque { padding-block: 56px; border-top: 1px solid var(--line); }
 h2 { font: 600 clamp(24px, 3.4vw, 32px)/1.15 var(--display); letter-spacing: -.015em; margin: 0; text-wrap: balance; }
 .bloque-head p { margin: 0; color: var(--soft); }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.grid.dos { grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); }
 .item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
 .item h3 { font: 600 18px/1.25 var(--display); margin: 0; letter-spacing: -.01em; }
 .item p { margin: 0; color: var(--soft); font-size: 16px; }
@@ -148,7 +151,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <h2>Servicios</h2>
         <p>Un solo responsable de punta a punta: desde la primera reunión hasta el soporte del día a día.</p>
       </div>
-      <div class="grid">
+      <div class="grid dos">
         <article class="item">
           <h3>Sistemas de gestión a medida</h3>
           <p>Reemplazan las planillas y los papeles por un sistema web que usa todo el equipo, desde la computadora o el celular.</p>
@@ -174,6 +177,15 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <li>Respaldo diario y prueba de restauración</li>
             <li>Actualizaciones de seguridad</li>
             <li>Respuesta en horas ante un problema grave</li>
+          </ul>
+        </article>
+        <article class="item">
+          <h3>Empresas grandes e instituciones</h3>
+          <p>Sistemas que se instalan en sus propios servidores, con los requisitos de su equipo de TI.</p>
+          <ul>
+            <li>Ingreso con usuarios de la institución</li>
+            <li>Registro de auditoría de cada cambio</li>
+            <li>Instalación documentada y respaldos cifrados</li>
           </ul>
         </article>
       </div>
@@ -244,10 +256,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <footer>
   <div class="wrap">
-    <span>© <span id="anio">2026</span> JPProyectos · Juan Riverón · Montevideo, Uruguay</span>
+    <span>© 2026 JPProyectos · Juan Riverón · Montevideo, Uruguay</span>
     <a href="pastillero/privacidad.html">Privacidad de Pastillero</a>
   </div>
 </footer>
-<script>document.getElementById("anio").textContent = new Date().getFullYear();</script>
 </body>
 </html>
