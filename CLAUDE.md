@@ -44,3 +44,7 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 ### 2026-10-18 — Dominio propio jpproyectos.com.uy (Claude Code, Opus)
 - **Qué:** el usuario compró `jpproyectos.com.uy` en Antel ($ 948/año). El sitio se mudó de GitHub Pages a **Vercel** (pedido del usuario: todo en un lugar y encabezados de seguridad que Pages no permite). Claude cargó el DNS en el panel de Antel con el Chrome del usuario y pasó las direcciones al dominio: dirección canónica, imagen para compartir, `sitemap.xml` y `robots.txt` con la dirección nueva.
 - **Ojo:** el registro público de Antel (whois) muestra nombre, dirección, teléfono y mail del titular.
+
+### 2026-10-18 — Textos de la portada (Claude Code, Opus)
+- **Qué:** pedido del usuario: título "Sistemas integrales hechos a medida de tu empresa", bajada abierta a empresas de Uruguay y del exterior, "Un único responsable", "Reemplaza", "Android y iPhone", "la persona que cuidás", "Copias cifradas diarias" y nombre completo de la Ley 18.331. La descripción para Google y para compartir también pasó a "Uruguay y del exterior" (PR #6).
+- **Quedó igual:** la tarjeta "Sistemas de gestión a medida" y la etiqueta "Software a medida · Uruguay"; se le ofreció cambiarlas al usuario.
