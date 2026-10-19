@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kaluka92.github.io/sitemap.xml
+Sitemap: https://jpproyectos.com.uy/sitemap.xml

@@ -7,7 +7,8 @@
 Sitio público de JPProyectos (Juan Riverón): presentación como estudio de software a medida, trabajos y productos, y la política de privacidad de Pastillero (la usa Google Play).
 
 ## Stack
-- HTML y CSS a mano, sin build. GitHub Pages publica `main` en https://kaluka92.github.io/.
+- HTML y CSS a mano, sin build. GitHub Pages publica `main` en **https://jpproyectos.com.uy/** (archivo `CNAME`); `kaluka92.github.io` redirige solo al dominio.
+- Dominio `jpproyectos.com.uy`: comprado en Antel (nic.com.uy, cuenta del usuario, vence el 2027-10-18, renovar). DNS en el panel de Antel: 4 registros A `@` → 185.199.108–111.153 (GitHub Pages), CNAME `www` → `kaluka92.github.io.`, TXT `_github-pages-challenge-Kaluka92` (verificación del dominio en GitHub: que nadie más pueda usarlo con su sitio). TTL 1 h.
 - Fuentes de Google Fonts: Unbounded (títulos), Instrument Sans (texto), IBM Plex Mono (etiquetas).
 - Marca en `marca/` (copiada de `~/Documents/JPProyectos/marca/`): `marca-animada.svg` en el encabezado, `marca.svg` y `marca-32.png` como favicon, `marca-192.png` para iPhone, `compartir.png` (1200 × 630) para la vista previa de los enlaces.
 
@@ -38,3 +39,7 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - **Seguridad:** sin JavaScript en las páginas (el año del pie quedó fijo) y política de seguridad por `<meta>` que prohíbe scripts, formularios y conexiones; `referrer` estricto. Probado: sin errores en consola y las fuentes cargan. GitHub Pages ya daba HTTPS obligatorio y HSTS.
 - **Repo público:** se sacó de este archivo el nombre del cliente que se había anotado en el PR #1 (sigue en el historial de git de ese commit; borrarlo de ahí requiere reescribir el historial, decisión del usuario).
 - **Google:** `sitemap.xml` y `robots.txt`. El sitio ya estaba dado de alta en Search Console; el 2026-10-18 se envió el sitemap y se pidió reindexar la portada.
+
+### 2026-10-18 — Dominio propio jpproyectos.com.uy (Claude Code, Opus)
+- **Qué:** el usuario compró `jpproyectos.com.uy` en Antel ($ 948/año). Claude cargó el DNS en el panel de Antel (con el Chrome del usuario), lo verificó en GitHub y pasó el sitio al dominio: `CNAME`, dirección canónica, imagen para compartir, `sitemap.xml` y `robots.txt` con la dirección nueva.
+- **Ojo:** el registro público de Antel (whois) muestra nombre, dirección, teléfono y mail del titular.
