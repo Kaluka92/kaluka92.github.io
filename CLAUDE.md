@@ -7,8 +7,9 @@
 Sitio público de JPProyectos (Juan Riverón): presentación como estudio de software a medida, trabajos y productos, y la política de privacidad de Pastillero (la usa Google Play).
 
 ## Stack
-- HTML y CSS a mano, sin build. GitHub Pages publica `main` en **https://jpproyectos.com.uy/** (archivo `CNAME`); `kaluka92.github.io` redirige solo al dominio.
-- Dominio `jpproyectos.com.uy`: comprado en Antel (nic.com.uy, cuenta del usuario, vence el 2027-10-18, renovar). DNS en el panel de Antel: 4 registros A `@` → 185.199.108–111.153 (GitHub Pages), CNAME `www` → `kaluka92.github.io.`, TXT `_github-pages-challenge-Kaluka92` (verificación del dominio en GitHub: que nadie más pueda usarlo con su sitio). TTL 1 h.
+- HTML y CSS a mano, sin build. **Vercel** (equipo `jpproyectos`, proyecto `jpproyectos-web`, conectado a este repo) publica `main` en **https://jpproyectos.com.uy/**; cada PR tiene su preview. `vercel.json`: encabezados de seguridad (CSP con `frame-ancestors 'none'`, HSTS, nosniff, Referrer y Permissions-Policy) y `www` → dominio sin www.
+- Dominio `jpproyectos.com.uy`: comprado en Antel (nic.com.uy, cuenta del usuario, vence el 2027-10-18, renovar). DNS en el panel de Antel: A `@` → `216.198.79.1` y `64.29.17.1`, CNAME `www` → `cname.vercel-dns.com.` (TTL 1 h). Queda también el TXT `_github-pages-challenge-Kaluka92` (verificación del dominio en GitHub; inofensivo).
+- `kaluka92.github.io` (GitHub Pages, rama `gh-pages`): solo páginas que redirigen a las mismas rutas en el dominio nuevo, porque Play Console y el trámite del D-U-N-S tienen esa dirección.
 - Fuentes de Google Fonts: Unbounded (títulos), Instrument Sans (texto), IBM Plex Mono (etiquetas).
 - Marca en `marca/` (copiada de `~/Documents/JPProyectos/marca/`): `marca-animada.svg` en el encabezado, `marca.svg` y `marca-32.png` como favicon, `marca-192.png` para iPhone, `compartir.png` (1200 × 630) para la vista previa de los enlaces.
 
@@ -19,7 +20,7 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 
 ## Cosas a tener en cuenta
 - CI (`.github/workflows/ci.yml`): revisa que los enlaces e imágenes internas existan.
-- Seguridad: las páginas no tienen JavaScript y una política de seguridad (`<meta http-equiv="Content-Security-Policy">`) prohíbe scripts. Si algún día hace falta uno, ajustar esa política. El año del pie es fijo: cambiarlo cada enero.
+- Seguridad: las páginas no tienen JavaScript; la política de seguridad está en `vercel.json` (encabezado) y repetida en un `<meta>` de cada página. Si algún día hace falta uno, ajustar esa política. El año del pie es fijo: cambiarlo cada enero.
 - `sitemap.xml` y `robots.txt` para Google: al sumar una página, agregarla al sitemap.
 - `main` = publicado: los cambios van por rama + PR y el usuario los ve antes de mergear (es público).
 - **El repo es público:** nada de nombres de clientes, datos de contacto privados ni notas internas en este archivo ni en ningún otro. Los casos de clientes van sin nombre salvo permiso escrito.
@@ -41,5 +42,5 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - **Google:** `sitemap.xml` y `robots.txt`. El sitio ya estaba dado de alta en Search Console; el 2026-10-18 se envió el sitemap y se pidió reindexar la portada.
 
 ### 2026-10-18 — Dominio propio jpproyectos.com.uy (Claude Code, Opus)
-- **Qué:** el usuario compró `jpproyectos.com.uy` en Antel ($ 948/año). Claude cargó el DNS en el panel de Antel (con el Chrome del usuario), lo verificó en GitHub y pasó el sitio al dominio: `CNAME`, dirección canónica, imagen para compartir, `sitemap.xml` y `robots.txt` con la dirección nueva.
+- **Qué:** el usuario compró `jpproyectos.com.uy` en Antel ($ 948/año). El sitio se mudó de GitHub Pages a **Vercel** (pedido del usuario: todo en un lugar y encabezados de seguridad que Pages no permite). Claude cargó el DNS en el panel de Antel con el Chrome del usuario y pasó las direcciones al dominio: dirección canónica, imagen para compartir, `sitemap.xml` y `robots.txt` con la dirección nueva.
 - **Ojo:** el registro público de Antel (whois) muestra nombre, dirección, teléfono y mail del titular.
