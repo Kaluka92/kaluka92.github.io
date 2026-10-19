@@ -47,4 +47,4 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 
 ### 2026-10-18 — Textos de la portada (Claude Code, Opus)
 - **Qué:** pedido del usuario: título "Sistemas integrales hechos a medida de tu empresa", bajada abierta a empresas de Uruguay y del exterior, "Un único responsable", "Reemplaza", "Android y iPhone", "la persona que cuidás", "Copias cifradas diarias" y nombre completo de la Ley 18.331. La descripción para Google y para compartir también pasó a "Uruguay y del exterior" (PR #6).
-- **Quedó igual:** la tarjeta "Sistemas de gestión a medida" y la etiqueta "Software a medida · Uruguay"; se le ofreció cambiarlas al usuario.
+- **Después (PR #7):** la tarjeta pasó a "Sistemas integrales a medida". Quedó igual la etiqueta "Software a medida · Uruguay".
