@@ -83,3 +83,6 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 ### 2026-10-20 — Medición de visitas sin cookies (Claude Code, Opus)
 - **Qué (paso 6 del plan):** Vercel Web Analytics gratis (Hobby) activado en `jpproyectos-web` y script en las 4 páginas; CSP abre solo `script-src`/`connect-src 'self'`. El chequeo de enlaces saltea `/_vercel/` y `/api/`. Aviso en el pie: "Las visitas se miden de forma anónima, sin cookies."
 - **Decisión:** el sitio deja de ser "cero JavaScript", con un único script del propio dominio; se le explicó al usuario antes.
+
+### 2026-10-20 — Gestor UY en gestor.jpproyectos.com.uy (Claude Code, Opus)
+- **Qué (paso 7 del plan):** CNAME `gestor` en Antel → Vercel (proyecto gestor-uy, mismo equipo), y el enlace "Abrir Gestor UY" apunta al subdominio. En gestor-uy (PR #69) las URL absolutas pasan al dominio y `gestor-uy.vercel.app` redirige con 301.
