@@ -34,8 +34,10 @@ export async function POST(request) {
       signal: AbortSignal.timeout(8000),
     });
     if (!r.ok) {
-      // Sin datos de la persona en el log: solo el estado de Resend.
-      console.error("[contacto] Resend respondió", r.status, (await r.text()).slice(0, 300));
+      // Sin datos de la persona en el log: solo el estado y el código de error de
+      // Resend (su mensaje puede repetir el mail de quien escribió).
+      const codigo = await r.json().then((j) => j?.name, () => undefined);
+      console.error("[contacto] Resend respondió", r.status, codigo ?? "");
       return volver("/contacto-error.html");
     }
   } catch (e) {
