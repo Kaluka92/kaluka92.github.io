@@ -22,7 +22,8 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 
 ## Cosas a tener en cuenta
 - CI (`.github/workflows/ci.yml`): revisa que los enlaces e imágenes internas existan y corre `node --test test/*.test.mjs`.
-- Seguridad: las páginas no tienen JavaScript (el formulario es un POST común, `form-action 'self'`); la política de seguridad está en `vercel.json` (encabezado) y repetida en un `<meta>` de cada página. Si algún día hace falta uno, ajustar esa política. El año del pie es fijo: cambiarlo cada enero.
+- Seguridad: el único JavaScript es el de medición de visitas de Vercel (`/_vercel/insights/script.js`, del propio dominio: `script-src 'self'`, `connect-src 'self'`); el formulario es un POST común (`form-action 'self'`); la política de seguridad está en `vercel.json` (encabezado) y repetida en un `<meta>` de cada página. Si algún día hace falta uno, ajustar esa política. El año del pie es fijo: cambiarlo cada enero.
+- **Medición de visitas:** Vercel Web Analytics (plan Hobby: 50.000 eventos/mes para todo el equipo, 30 días de historial, sin cookies; si se pasa, deja de medir, no cobra). Activada en el panel del proyecto; el script va en el `<head>` de cada página (también `gracias.html`, que cuenta los formularios enviados). Aviso en el pie de la portada.
 - `sitemap.xml` y `robots.txt` para Google: al sumar una página, agregarla al sitemap.
 - `main` = publicado: los cambios van por rama + PR y el usuario los ve antes de mergear (es público).
 - **El repo es público:** nada de nombres de clientes, datos de contacto privados ni notas internas en este archivo ni en ningún otro. Los casos de clientes van sin nombre salvo permiso escrito.
@@ -78,3 +79,7 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 ### 2026-10-20 — Formulario de contacto (Claude Code, Opus)
 - **Qué (paso 5 del plan):** formulario en `#contacto` (nombre, mail, empresa opcional, mensaje) que manda con Resend a contacto@; el mail directo queda como alternativa. Dominio verificado en Resend (cuenta del usuario, la misma del CRM; plan gratis: 3.000 mails/mes, 100/día, 3 dominios). Probado con `vercel dev`: válido sin clave → error (log "falta RESEND_API_KEY"), trampa → gracias sin enviar, mail inválido → error, otro origen → 403. Capturas a 1280 y 390 px, claro y oscuro, sin desborde (había uno de 714 px en celular: el form necesitaba `min-width: 0`).
 - **Ventaja para otros sistemas:** con el dominio verificado, GIDE (mail semanal) y el CRM pueden mandar desde @jpproyectos.com.uy a cualquier destinatario.
+
+### 2026-10-20 — Medición de visitas sin cookies (Claude Code, Opus)
+- **Qué (paso 6 del plan):** Vercel Web Analytics gratis (Hobby) activado en `jpproyectos-web` y script en las 4 páginas; CSP abre solo `script-src`/`connect-src 'self'`. El chequeo de enlaces saltea `/_vercel/` y `/api/`. Aviso en el pie: "Las visitas se miden de forma anónima, sin cookies."
+- **Decisión:** el sitio deja de ser "cero JavaScript", con un único script del propio dominio; se le explicó al usuario antes.

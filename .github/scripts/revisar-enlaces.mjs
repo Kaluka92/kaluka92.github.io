@@ -9,6 +9,8 @@ for (const pagina of paginas) {
   const html = readFileSync(pagina, "utf8");
   for (const [, ruta] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     if (/^(https?:|mailto:|tel:|data:|#)/.test(ruta)) continue;
+    // Rutas que sirve Vercel, no archivos del repo: /_vercel/ (medición de visitas) y /api/ (funciones).
+    if (/^\/(_vercel|api)\//.test(ruta)) continue;
     const limpia = ruta.split("#")[0].split("?")[0];
     const destino = join(dirname(pagina), limpia.endsWith("/") || limpia === "" ? join(limpia, "index.html") : limpia);
     if (!existsSync(destino)) {
