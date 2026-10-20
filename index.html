@@ -109,6 +109,14 @@ h2 { font: 600 clamp(24px, 3.4vw, 32px)/1.15 var(--display); letter-spacing: -.0
 .sobre .texto p strong { color: var(--fg); font-weight: 600; }
 .sobre .datos { grid-template-columns: 1fr; }
 
+.faq { display: grid; gap: 10px; max-width: 80ch; }
+.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 22px; }
+.faq summary { cursor: pointer; list-style: none; padding: 18px 0; font: 600 16.5px/1.35 var(--body); display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 500 20px/1 var(--mono); color: var(--celeste); flex: none; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 0 0 18px; color: var(--soft); font-size: 15.5px; }
+
 /* Contacto */
 .contacto { background: var(--ink); color: var(--on-ink); border-radius: 18px; padding: 40px clamp(22px, 5vw, 48px); display: grid; gap: 18px; }
 .contacto h2 { color: inherit; }
@@ -267,6 +275,43 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="dato"><dt>Acceso controlado</dt><dd>Cada usuario ve solo lo suyo, con verificación en dos pasos disponible.</dd></div>
         <div class="dato"><dt>Siempre podés llevártelos</dt><dd>Descarga completa de los datos en cualquier momento. Se cumple la Ley 18.331 de Protección de Datos Personales.</dd></div>
       </dl>
+    </section>
+
+    <section class="bloque" id="preguntas">
+      <div class="bloque-head">
+        <h2>Preguntas frecuentes</h2>
+        <p>Lo que suelen preguntar antes de arrancar.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>¿Cuánto cuesta un sistema?</summary>
+          <p>Depende de lo que necesites, por eso no hay precios de lista. Después de una primera charla te paso un presupuesto sin costo, con un precio cerrado por el desarrollo y una mensualidad fija por el mantenimiento. Sabés de antemano cuánto vas a pagar.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto demora?</summary>
+          <p>Se trabaja por etapas y lo primero que hacemos queda funcionando en pocas semanas, para que lo pruebes con tus datos. Un sistema completo se va armando de a partes, sin esperar meses a ver un resultado. El plazo de cada etapa queda escrito en el presupuesto.</p>
+        </details>
+        <details>
+          <summary>¿De quién son los datos y el sistema?</summary>
+          <p>Los datos son siempre de tu empresa y podés descargarlos completos en cualquier momento. El sistema lo usás con una licencia mientras esté vigente el servicio; así puedo mantenerlo, mejorarlo y responder por él.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si quiero dar de baja el servicio?</summary>
+          <p>Se avisa con 30 días de anticipación. En ese tiempo te llevás todos tus datos en archivos que podés abrir con Excel u otros programas, para que no quedes atado a nada.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si algo falla?</summary>
+          <p>Me escribís y lo resuelvo según la gravedad: si el sistema no se puede usar, la respuesta es en horas; si es algo que molesta pero permite trabajar, en el día hábil; y las consultas, en uno o dos días hábiles. Además, todo tiene respaldo diario.</p>
+        </details>
+        <details>
+          <summary>¿Hay que saber de tecnología para usarlo?</summary>
+          <p>No. Cada sistema se entrega con una capacitación para cada persona según lo que hace y con un manual en palabras simples. Y si alguien se traba, me escribe.</p>
+        </details>
+        <details>
+          <summary>¿Trabajás con empresas fuera de Uruguay?</summary>
+          <p>Sí. Trabajo en forma remota, con reuniones por videollamada y cobro en dólares.</p>
+        </details>
+      </div>
     </section>
 
     <section class="bloque" id="contacto">
