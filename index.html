@@ -117,6 +117,13 @@ h2 { font: 600 clamp(24px, 3.4vw, 32px)/1.15 var(--display); letter-spacing: -.0
 .faq details[open] summary::after { content: "−"; }
 .faq details p { margin: 0 0 18px; color: var(--soft); font-size: 15.5px; }
 
+.capturas { display: grid; gap: 10px; margin: 4px 0 2px; }
+.capturas.pc { grid-template-columns: 1fr; }
+.capturas.cel { grid-template-columns: 1fr 1fr; max-width: 320px; }
+.capturas a { display: block; }
+.capturas img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.capturas.cel img { border-radius: 14px; }
+
 /* Contacto */
 .contacto { background: var(--ink); color: var(--on-ink); border-radius: 18px; padding: 40px clamp(22px, 5vw, 48px); display: grid; gap: 18px; }
 .contacto h2 { color: inherit; }
@@ -221,12 +228,20 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <span class="etiqueta">Producto propio · en uso</span>
           <h3>Gestor UY</h3>
           <p>Calculadoras de sueldo, IRPF, BPS, despido y seguro de paro, buscador de trámites y vencimientos, con las fuentes oficiales de cada cifra.</p>
+          <div class="capturas pc">
+            <a href="capturas/gestor-uy-inicio.webp" target="_blank" rel="noopener"><img src="capturas/gestor-uy-inicio.webp" width="960" height="600" loading="lazy" alt="Portada de Gestor UY: «¿Qué te pasa?» y las consultas más frecuentes"></a>
+            <a href="capturas/gestor-uy-calculo.webp" target="_blank" rel="noopener"><img src="capturas/gestor-uy-calculo.webp" width="960" height="600" loading="lazy" alt="Calculadora de IRPF de Gestor UY con el resultado y la cuenta tramo por tramo"></a>
+          </div>
           <div class="links"><a href="https://gestor-uy.vercel.app" target="_blank" rel="noopener">Abrir Gestor UY</a></div>
         </article>
         <article class="item">
           <span class="etiqueta">Producto propio · próximamente en Google Play</span>
           <h3>Pastillero</h3>
           <p>Recordatorios de medicamentos para vos o para la persona que cuidás, con historial de tomas y control de stock. Los datos quedan solo en el celular.</p>
+          <div class="capturas cel">
+            <a href="capturas/pastillero-hoy.webp" target="_blank" rel="noopener"><img src="capturas/pastillero-hoy.webp" width="480" height="1039" loading="lazy" alt="Pastillero: tomas del día, con una atrasada y las ya tomadas"></a>
+            <a href="capturas/pastillero-medicamentos.webp" target="_blank" rel="noopener"><img src="capturas/pastillero-medicamentos.webp" width="480" height="1039" loading="lazy" alt="Pastillero: lista de medicamentos con horarios y aviso de que conviene reponer"></a>
+          </div>
           <div class="links"><a href="pastillero/privacidad.html">Política de privacidad</a></div>
         </article>
       </div>
@@ -301,7 +316,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         </details>
         <details>
           <summary>¿Qué pasa si algo falla?</summary>
-          <p>Me escribís y lo resuelvo según la gravedad: si el sistema no se puede usar, la respuesta es en horas; si es algo que molesta pero permite trabajar, en el día hábil; y las consultas, en uno o dos días hábiles. Además, todo tiene respaldo diario.</p>
+          <p>Me escribís y lo resuelvo según la gravedad: si el sistema no se puede usar, la respuesta es en horas; si es algo que molesta pero permite trabajar, en el día hábil; y las consultas, en hasta tres días hábiles. Además, todo tiene respaldo diario.</p>
         </details>
         <details>
           <summary>¿Hay que saber de tecnología para usarlo?</summary>

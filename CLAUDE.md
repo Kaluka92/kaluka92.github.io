@@ -17,6 +17,7 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - `index.html` — la página principal (servicios, trabajos y productos, cómo trabajo, datos, contacto).
 - `pastillero/privacidad.html` — política de privacidad de Pastillero. Si cambia lo que hace la app con los datos, actualizarla y cambiar la fecha de vigencia.
 - `google70995f6349117a4d.html` — verificación de Google Search Console. No borrar.
+- `capturas/` — capturas en WebP de los trabajos (Gestor UY a 960 px, Pastillero a 480 px), con datos de ejemplo. Cómo se rehacen: Gestor UY desde el sitio público con Playwright (`/calculadoras#irpf-mensual` + botón `.ejemplo`); Pastillero exportando la app a web en una copia aparte (`expo install react-dom react-native-web @expo/metro-runtime` + `expo export -p web`, sin commitear eso) con datos sembrados en `localStorage` (claves `@pastillero/...`). Nunca datos reales ni de clientes.
 
 ## Cosas a tener en cuenta
 - CI (`.github/workflows/ci.yml`): revisa que los enlaces e imágenes internas existan.
@@ -64,3 +65,7 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 ### 2026-10-20 — Preguntas frecuentes (Claude Code, Opus)
 - **Qué (paso 3 del plan):** sección `#preguntas` antes de Contacto, con 7 preguntas en `<details>` (sin JavaScript). El usuario dejó el contenido a criterio de Claude y lo aprueba al ver la vista previa. Alineado con el contrato de GIDE: sin precios publicados (presupuesto sin costo, precio cerrado + mensualidad), licencia de uso del sistema mientras esté vigente el servicio, datos del cliente descargables, baja con 30 días de aviso, soporte por gravedad (horas / día hábil / 1–2 días hábiles), moneda: exterior siempre en dólares, Uruguay en pesos o dólares (decisión del usuario).
 - **Ojo:** si cambian las condiciones del contrato modelo, actualizar estas respuestas.
+
+### 2026-10-20 — Capturas de los trabajos (Claude Code, Opus)
+- **Qué (paso 4 del plan):** 2 capturas de Gestor UY (portada y cálculo de IRPF de ejemplo) y 2 del Pastillero (tomas de hoy y medicamentos, con una persona ficticia) dentro de sus tarjetas; cada una abre en grande. 130 KB en total, `loading="lazy"`. Además, en las preguntas frecuentes las consultas pasan a "hasta tres días hábiles", como dice el contrato.
+- **GIDE (cliente):** sin capturas por ahora. El contrato (cláusula OCTAVA) deja el diseño y el código del lado del proveedor, pero la DÉCIMA obliga a reservar datos, precios, clientes y procesos del cliente. Se puede mostrar con datos inventados y sin la marca del cliente; lo prudente es sumar una cláusula de "referencia comercial" o pedir el OK por escrito antes. Decisión del usuario.
