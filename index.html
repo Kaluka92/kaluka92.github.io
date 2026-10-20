@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="marca/marca-32.png">
 <link rel="apple-touch-icon" href="marca/marca-192.png">
 <meta name="theme-color" content="#0f1b2d">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_UY">
@@ -131,6 +131,19 @@ h2 { font: 600 clamp(24px, 3.4vw, 32px)/1.15 var(--display); letter-spacing: -.0
 .contacto .canal { display: flex; flex-wrap: wrap; gap: 10px 28px; font: 500 16px/1.4 var(--mono); }
 .contacto .canal a { text-underline-offset: 4px; }
 .contacto .btn { background: var(--on-ink); color: var(--ink); border-color: var(--on-ink); justify-self: start; }
+.formulario { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px 16px; width: 100%; max-width: 720px; min-width: 0; }
+.formulario label { display: grid; gap: 6px; font-size: 15px; font-weight: 500; min-width: 0; }
+.formulario .ancho { grid-column: 1 / -1; }
+.formulario input, .formulario textarea { font: inherit; font-size: 16px; color: inherit; background: color-mix(in srgb, var(--on-ink) 8%, transparent); border: 1px solid color-mix(in srgb, var(--on-ink) 28%, transparent); border-radius: 10px; padding: 11px 13px; width: 100%; }
+.formulario textarea { min-height: 130px; resize: vertical; }
+.formulario input:focus, .formulario textarea:focus { outline: 2px solid var(--celeste); outline-offset: 1px; }
+.formulario .opcional { font-weight: 400; opacity: .7; }
+.formulario .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.formulario .pie { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.formulario .pie p { font-size: 14px; opacity: .75; }
+.formulario button { cursor: pointer; font-family: inherit; }
+.contacto .alternativa { font-size: 15px; }
+.contacto .alternativa a { font-family: var(--mono); overflow-wrap: anywhere; text-underline-offset: 4px; }
 
 footer { padding-block: 36px calc(36px + env(safe-area-inset-bottom, 0px)); color: var(--soft); font-size: 14px; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
@@ -346,8 +359,28 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="contacto">
         <h2>¿Tenés algo para ordenar?</h2>
         <p>Contame en un par de líneas a qué se dedica tu empresa y qué te gustaría resolver. Te respondo en el día.</p>
-        <div class="canal"><a href="mailto:contacto@jpproyectos.com.uy">contacto@jpproyectos.com.uy</a></div>
-        <a class="btn" href="mailto:contacto@jpproyectos.com.uy?subject=Consulta%20desde%20la%20web">Escribir un mail</a>
+        <form class="formulario" method="post" action="/api/contacto">
+          <label>Nombre
+            <input name="nombre" required maxlength="100" autocomplete="name">
+          </label>
+          <label>Mail
+            <input name="email" type="email" required maxlength="200" autocomplete="email">
+          </label>
+          <label class="ancho"><span>Empresa <span class="opcional">(opcional)</span></span>
+            <input name="empresa" maxlength="120" autocomplete="organization">
+          </label>
+          <label class="ancho">¿Qué te gustaría resolver?
+            <textarea name="mensaje" required minlength="10" maxlength="3000"></textarea>
+          </label>
+          <div class="trampa" aria-hidden="true">
+            <label>No completar <input name="sitio_web" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <div class="pie">
+            <button class="btn" type="submit">Enviar consulta</button>
+            <p>Uso tus datos solo para responderte; no se guardan en el sitio.</p>
+          </div>
+        </form>
+        <p class="alternativa">O escribime a <a href="mailto:contacto@jpproyectos.com.uy">contacto@jpproyectos.com.uy</a></p>
       </div>
     </section>
   </div>

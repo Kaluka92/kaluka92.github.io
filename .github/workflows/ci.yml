@@ -14,3 +14,4 @@ jobs:
         with:
           node-version: 24
       - run: node .github/scripts/revisar-enlaces.mjs
+      - run: node --test test/*.test.mjs
