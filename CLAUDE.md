@@ -57,3 +57,6 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 ### 2026-10-20 — Mail propio contacto@jpproyectos.com.uy (Claude Code, Opus)
 - **Qué (paso 1 del plan):** el usuario creó la cuenta en ImprovMX; Claude corrigió el dominio mal cargado (`jpproyectos.com`) y cargó el primer MX en Antel; el panel de Antel se trababa (lista de dominios cargando sin fin: se arregla cerrando sesión y volviendo a entrar), así que el usuario cargó el segundo MX y el SPF. Gmail "Enviar como" configurado por el usuario; el código de verificación llegó por el reenvío (probado). La portada y la política de Pastillero usan contacto@ (PR #10).
 - **Sigue:** paso 2, "Sobre mí" (faltan datos del usuario).
+
+### 2026-10-20 — Sección "Sobre mí" (Claude Code, Opus)
+- **Qué (paso 2 del plan):** sección `#sobre-mi` entre "Cómo trabajo" y "Tus datos", con enlace en el menú. Datos del usuario: desarrolla desde 2024, para clientes desde 2025; Bachillerato Tecnológico (UTU), técnico en redes, analista en seguros; experiencia en venta y atención a clientes; estilo "profesional y cercano". Sin foto por ahora (decisión del usuario). Años fijos en vez de "hace N años" para que no envejezca el texto.
