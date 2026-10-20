@@ -24,7 +24,8 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - `sitemap.xml` y `robots.txt` para Google: al sumar una página, agregarla al sitemap.
 - `main` = publicado: los cambios van por rama + PR y el usuario los ve antes de mergear (es público).
 - **El repo es público:** nada de nombres de clientes, datos de contacto privados ni notas internas en este archivo ni en ningún otro. Los casos de clientes van sin nombre salvo permiso escrito.
-- No publicar el teléfono sin que el usuario lo pida; el contacto público es el mail.
+- No publicar el teléfono sin que el usuario lo pida; el contacto público es **contacto@jpproyectos.com.uy**.
+- Mail del dominio: ImprovMX (plan gratis, cuenta del usuario) reenvía `*@jpproyectos.com.uy` al Gmail del usuario. DNS en Antel: MX `@` 10 `mx1.improvmx.com.` y 20 `mx2.improvmx.com.`; TXT `@` `v=spf1 include:spf.improvmx.com include:_spf.google.com ~all`. El usuario responde desde Gmail con "Enviar como" (smtp.gmail.com con contraseña de aplicación; si la revoca, deja de poder enviar como contacto@).
 
 ## Bitácora
 
@@ -52,3 +53,7 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 ### 2026-10-19 — Descripción general (Claude Code, Opus)
 - **Qué:** pedido del usuario: que la portada hable de software de cualquier tipo a medida de cada cliente, sin rubros puntuales (flota, contratos, cobranzas). Cambiaron la bajada, el texto y los puntos de "Sistemas integrales a medida" y "partes diarios" → "formularios" (PR #9). "Trabajos y productos" queda con casos concretos.
 - **Plan acordado (paso a paso con el usuario):** 1) mail propio contacto@jpproyectos.com.uy, 2) "Sobre mí", 3) preguntas frecuentes, 4) capturas de los sistemas, 5) formulario de contacto, 6) medición de visitas sin cookies, 7) Gestor UY en subdominio, 8) testimonio con permiso, 9) inglés si hace falta. Revisar también las promesas de "Tus datos, cuidados" (dos pasos, prueba mensual, respuesta en horas) contra lo que tiene cada sistema.
+
+### 2026-10-20 — Mail propio contacto@jpproyectos.com.uy (Claude Code, Opus)
+- **Qué (paso 1 del plan):** el usuario creó la cuenta en ImprovMX; Claude corrigió el dominio mal cargado (`jpproyectos.com`) y cargó el primer MX en Antel; el panel de Antel se trababa (lista de dominios cargando sin fin: se arregla cerrando sesión y volviendo a entrar), así que el usuario cargó el segundo MX y el SPF. Gmail "Enviar como" configurado por el usuario; el código de verificación llegó por el reenvío (probado). La portada y la política de Pastillero usan contacto@ (PR #10).
+- **Sigue:** paso 2, "Sobre mí" (faltan datos del usuario).
