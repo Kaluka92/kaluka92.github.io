@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JPProyectos · Software sob medida do Uruguai</title>
+<meta name="description" content="Sistemas integrados e apps sob medida para empresas do Uruguai e do exterior, com manutenção, backups diários e suporte. JPProyectos, de Juan Riverón.">
+<link rel="alternate" hreflang="es" href="https://jpproyectos.com.uy/">
+<link rel="alternate" hreflang="en" href="https://jpproyectos.com.uy/en">
+<link rel="alternate" hreflang="pt" href="https://jpproyectos.com.uy/pt">
+<link rel="alternate" hreflang="x-default" href="https://jpproyectos.com.uy/">
+<link rel="canonical" href="https://jpproyectos.com.uy/pt">
+<link rel="icon" type="image/svg+xml" href="/marca/marca.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/marca/marca-32.png">
+<link rel="apple-touch-icon" href="/marca/marca-192.png">
+<meta name="theme-color" content="#0f1b2d">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="JPProyectos · Software sob medida do Uruguai">
+<meta property="og:description" content="Sistemas integrados e apps sob medida para empresas do Uruguai e do exterior, com manutenção, backups diários e suporte.">
+<meta property="og:url" content="https://jpproyectos.com.uy/pt">
+<meta property="og:image" content="https://jpproyectos.com.uy/marca/compartir.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Una columna de lectura: encabezado con la marca, propuesta, servicios, productos, forma de trabajo, datos y contacto. */
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --fg: #0f1b2d;
+  --soft: #4f5b6d;
+  --line: #dde3ec;
+  --ink: #0f1b2d;
+  --celeste: #2f86c4;
+  --celeste-suave: #e3f0fa;
+  --on-ink: #ffffff;
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #0b121e; --surface: #121c2c; --fg: #e9eef5; --soft: #9fabbd; --line: #233148; --ink: #e9eef5; --celeste: #6cb6ea; --celeste-suave: #16304a; --on-ink: #0b121e; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #0b121e; --surface: #121c2c; --fg: #e9eef5; --soft: #9fabbd; --line: #233148; --ink: #e9eef5; --celeste: #6cb6ea; --celeste-suave: #16304a; --on-ink: #0b121e; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--celeste); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* Encabezado */
+.top { border-bottom: 1px solid var(--line); background: var(--surface); position: sticky; top: 0; z-index: 5; padding-top: env(safe-area-inset-top, 0px); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo img { width: 38px; height: 38px; display: block; }
+.logo span { font: 600 18px/1 var(--display); letter-spacing: -.015em; white-space: nowrap; }
+.logo b { font-weight: 700; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 26px; }
+nav a { text-decoration: none; font-weight: 500; font-size: 15px; color: var(--soft); }
+nav a:hover { color: var(--fg); }
+@media (max-width: 760px) { nav { display: none; } }
+
+/* Propuesta */
+.hero { padding-block: 72px 64px; display: grid; gap: 22px; }
+.eyebrow { font: 500 12.5px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--celeste); }
+h1 { font: 700 clamp(32px, 5.6vw, 54px)/1.08 var(--display); letter-spacing: -.02em; margin: 0; max-width: 18ch; text-wrap: balance; }
+.lead { font-size: 19px; color: var(--soft); max-width: 58ch; margin: 0; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-weight: 600; font-size: 16px; padding: 13px 20px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); }
+.btn.principal { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.btn:hover { filter: brightness(1.08); }
+
+/* Secciones */
+section.bloque { padding-block: 56px; border-top: 1px solid var(--line); }
+.bloque-head { display: grid; gap: 8px; margin-bottom: 30px; max-width: 62ch; }
+h2 { font: 600 clamp(24px, 3.4vw, 32px)/1.15 var(--display); letter-spacing: -.015em; margin: 0; text-wrap: balance; }
+.bloque-head p { margin: 0; color: var(--soft); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.grid.dos { grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); }
+.item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.item h3 { font: 600 18px/1.25 var(--display); margin: 0; letter-spacing: -.01em; }
+.item p { margin: 0; color: var(--soft); font-size: 16px; }
+.item ul { margin: 0; padding-left: 18px; color: var(--soft); font-size: 15.5px; display: grid; gap: 4px; }
+.etiqueta { justify-self: start; font: 500 11.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 6px 9px; border-radius: 6px; background: var(--celeste-suave); color: var(--celeste); }
+.item .links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 4px; }
+.item .links a { font-weight: 600; font-size: 15px; text-decoration-color: var(--celeste); text-underline-offset: 3px; }
+
+/* Forma de trabajo */
+.pasos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; counter-reset: paso; }
+.pasos li { counter-increment: paso; display: grid; gap: 8px; padding-top: 16px; border-top: 2px solid var(--fg); }
+.pasos li::before { content: counter(paso, decimal-leading-zero); font: 500 13px/1 var(--mono); color: var(--celeste); }
+.pasos h3 { font: 600 17px/1.25 var(--display); margin: 0; }
+.pasos p { margin: 0; color: var(--soft); font-size: 15.5px; }
+
+/* Datos */
+.datos { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow: hidden; }
+.dato { padding: 22px 24px; display: grid; gap: 6px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); margin: 0 -1px -1px 0; }
+.dato dt { font: 600 15.5px/1.3 var(--body); }
+.dato dd { margin: 0; color: var(--soft); font-size: 15px; }
+
+.sobre { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 28px; align-items: start; }
+.sobre .texto { display: grid; gap: 14px; max-width: 62ch; min-width: 0; }
+.sobre .texto p { margin: 0; color: var(--soft); font-size: 17px; }
+.sobre .texto p strong { color: var(--fg); font-weight: 600; }
+.sobre .datos { grid-template-columns: 1fr; }
+
+.faq { display: grid; gap: 10px; max-width: 80ch; }
+.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 22px; }
+.faq summary { cursor: pointer; list-style: none; padding: 18px 0; font: 600 16.5px/1.35 var(--body); display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font: 500 20px/1 var(--mono); color: var(--celeste); flex: none; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 0 0 18px; color: var(--soft); font-size: 15.5px; }
+
+.capturas { display: grid; gap: 10px; margin: 4px 0 2px; }
+.capturas.pc { grid-template-columns: 1fr; }
+.capturas.cel { grid-template-columns: 1fr 1fr; max-width: 320px; }
+.capturas a { display: block; }
+.capturas img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); }
+.capturas.cel img { border-radius: 14px; }
+
+/* Contacto */
+.contacto { background: var(--ink); color: var(--on-ink); border-radius: 18px; padding: 40px clamp(22px, 5vw, 48px); display: grid; gap: 18px; }
+.contacto h2 { color: inherit; }
+.contacto p { margin: 0; opacity: .85; max-width: 56ch; }
+.contacto .canal { display: flex; flex-wrap: wrap; gap: 10px 28px; font: 500 16px/1.4 var(--mono); }
+.contacto .canal a { text-underline-offset: 4px; }
+.contacto .btn { background: var(--on-ink); color: var(--ink); border-color: var(--on-ink); justify-self: start; }
+.formulario { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px 16px; width: 100%; max-width: 720px; min-width: 0; }
+.formulario label { display: grid; gap: 6px; font-size: 15px; font-weight: 500; min-width: 0; }
+.formulario .ancho { grid-column: 1 / -1; }
+.formulario input, .formulario textarea { font: inherit; font-size: 16px; color: inherit; background: color-mix(in srgb, var(--on-ink) 8%, transparent); border: 1px solid color-mix(in srgb, var(--on-ink) 28%, transparent); border-radius: 10px; padding: 11px 13px; width: 100%; }
+.formulario textarea { min-height: 130px; resize: vertical; }
+.formulario input:focus, .formulario textarea:focus { outline: 2px solid var(--celeste); outline-offset: 1px; }
+.formulario .opcional { font-weight: 400; opacity: .7; }
+.formulario .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.formulario .pie { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.formulario .pie p { font-size: 14px; opacity: .75; }
+.formulario button { cursor: pointer; font-family: inherit; }
+.contacto .alternativa { font-size: 15px; }
+.contacto .alternativa a { font-family: var(--mono); overflow-wrap: anywhere; text-underline-offset: 4px; }
+
+.idiomas { display: flex; gap: 2px; font: 500 13px/1 var(--mono); }
+.idiomas a { padding: 6px 7px; border-radius: 6px; text-decoration: none; color: var(--soft); }
+.idiomas a[aria-current] { color: var(--fg); background: var(--celeste-suave); }
+footer { padding-block: 36px calc(36px + env(safe-area-inset-bottom, 0px)); color: var(--soft); font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="JPProyectos, início">
+      <img src="/marca/marca-animada.svg" alt="" width="38" height="38">
+      <span><b>JP</b>Proyectos</span>
+    </a>
+    <nav aria-label="Seções">
+      <ul>
+        <li><a href="#servicios">Serviços</a></li>
+        <li><a href="#productos">Trabalhos</a></li>
+        <li><a href="#forma-de-trabajo">Como trabalho</a></li>
+        <li><a href="#sobre-mi">Sobre mim</a></li>
+        <li><a href="#contacto">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="idiomas" role="navigation" aria-label="Idioma"><a href="/" lang="es" hreflang="es" title="Español">ES</a><a href="/en" lang="en" hreflang="en" title="English">EN</a><a href="/pt" lang="pt" hreflang="pt" title="Português" aria-current="page">PT</a></div>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Software sob medida · Do Uruguai</div>
+      <h1>Sistemas integrados feitos sob medida para a sua empresa.</h1>
+      <p class="lead">Desenvolvo software de qualquer tipo, pensado para cada cliente: sistemas web, apps para celular e ferramentas que se adaptam ao seu jeito de trabalhar. Trabalho com empresas do Uruguai e do exterior; entrego cada sistema funcionando, faço a manutenção e respondo quando algo falha.</p>
+      <div class="acciones">
+        <a class="btn principal" href="#contacto">Conte o que você precisa</a>
+        <a class="btn" href="#productos">Ver trabalhos</a>
+      </div>
+    </section>
+
+    <section class="bloque" id="servicios">
+      <div class="bloque-head">
+        <h2>Serviços</h2>
+        <p>Um único responsável de ponta a ponta: da primeira reunião ao suporte do dia a dia.</p>
+      </div>
+      <div class="grid dos">
+        <article class="item">
+          <h3>Sistemas integrados sob medida</h3>
+          <p>Um sistema web desenhado a partir de como a sua empresa trabalha, que substitui planilhas e papéis e é usado por toda a equipe no computador ou no celular.</p>
+          <ul>
+            <li>Feito de acordo com os seus processos, e não o contrário</li>
+            <li>Usuários com permissões por seção</li>
+            <li>Relatórios e documentos prontos para usar</li>
+          </ul>
+        </article>
+        <article class="item">
+          <h3>Apps para celular</h3>
+          <p>Apps para Android e iPhone pensados para quem os usa na rua, na obra ou em casa.</p>
+          <ul>
+            <li>Funcionam com pouco sinal</li>
+            <li>Avisos e lembretes</li>
+            <li>Fotos, assinaturas e formulários</li>
+          </ul>
+        </article>
+        <article class="item">
+          <h3>Manutenção e suporte</h3>
+          <p>Por uma mensalidade fixa, o sistema continua atualizado, seguro e com backup, com ajustes incluídos.</p>
+          <ul>
+            <li>Backup diário e teste de restauração</li>
+            <li>Atualizações de segurança</li>
+            <li>Resposta em horas para problemas graves</li>
+          </ul>
+        </article>
+        <article class="item">
+          <h3>Grandes empresas e instituições</h3>
+          <p>Sistemas instalados nos seus próprios servidores, com os requisitos da sua equipe de TI.</p>
+          <ul>
+            <li>Login com os usuários da instituição</li>
+            <li>Registro de auditoria de cada alteração</li>
+            <li>Instalação documentada e backups criptografados</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="bloque" id="productos">
+      <div class="bloque-head">
+        <h2>Trabalhos e produtos</h2>
+        <p>Alguns são para clientes e outros são produtos próprios, abertos a todos.</p>
+      </div>
+      <div class="grid dos">
+        <article class="item">
+          <span class="etiqueta">Cliente · em produção</span>
+          <h3>Sistema de gestão para uma empresa de locação de máquinas e obras</h3>
+          <p>Frota com vencimentos e manutenções, orçamentos que viram contrato, termos de entrega com fotos e assinatura, horas da equipe pelo celular, cobranças e rentabilidade por equipamento.</p>
+          <div class="capturas pc">
+            <a href="/capturas/gestion-panel.webp" target="_blank" rel="noopener"><img src="/capturas/gestion-panel.webp" width="960" height="600" loading="lazy" alt="Painel do sistema de gestão com o que foi cobrado, as despesas do mês e o que é preciso resolver hoje (dados de exemplo)"></a>
+            <a href="/capturas/gestion-rentabilidad.webp" target="_blank" rel="noopener"><img src="/capturas/gestion-rentabilidad.webp" width="960" height="600" loading="lazy" alt="Rentabilidade mês a mês e por contrato (dados de exemplo)"></a>
+          </div>
+        </article>
+        <article class="item">
+          <span class="etiqueta">Em produção</span>
+          <h3>CRM para uma corretora de seguros</h3>
+          <p>Clientes e apólices em um só lugar, avisos de vencimento para renovar a tempo, colaboradores com permissões e aprovação de alterações, relatórios por ramo e seguradora, e backups automáticos.</p>
+          <div class="capturas pc">
+            <a href="/capturas/crm-seguros-resumen.webp" target="_blank" rel="noopener"><img src="/capturas/crm-seguros-resumen.webp" width="960" height="600" loading="lazy" alt="Resumo do CRM com as apólices que vencem nos próximos dias (dados de exemplo)"></a>
+            <a href="/capturas/crm-seguros-polizas.webp" target="_blank" rel="noopener"><img src="/capturas/crm-seguros-polizas.webp" width="960" height="600" loading="lazy" alt="Lista de apólices com vigência, seguradora e prêmio (dados de exemplo)"></a>
+          </div>
+        </article>
+        <article class="item">
+          <span class="etiqueta">Produto próprio · em uso</span>
+          <h3>Gestor UY</h3>
+          <p>Para o Uruguai: calculadoras de salário, imposto de renda (IRPF), previdência (BPS), rescisão e seguro-desemprego, além de busca de trâmites e prazos, com a fonte oficial de cada número (em espanhol).</p>
+          <div class="capturas pc">
+            <a href="/capturas/gestor-uy-inicio.webp" target="_blank" rel="noopener"><img src="/capturas/gestor-uy-inicio.webp" width="960" height="600" loading="lazy" alt="Página inicial do Gestor UY com as consultas mais frequentes"></a>
+            <a href="/capturas/gestor-uy-calculo.webp" target="_blank" rel="noopener"><img src="/capturas/gestor-uy-calculo.webp" width="960" height="600" loading="lazy" alt="Calculadora de IRPF do Gestor UY com o resultado e o cálculo faixa por faixa"></a>
+          </div>
+          <div class="links"><a href="https://gestor.jpproyectos.com.uy" target="_blank" rel="noopener">Abrir o Gestor UY</a></div>
+        </article>
+        <article class="item">
+          <span class="etiqueta">Produto próprio · em breve no Google Play</span>
+          <h3>Pastillero</h3>
+          <p>Lembretes de medicamentos para você ou para a pessoa de quem você cuida, com histórico de doses e controle de estoque. Os dados ficam só no celular.</p>
+          <div class="capturas cel">
+            <a href="/capturas/pastillero-hoy.webp" target="_blank" rel="noopener"><img src="/capturas/pastillero-hoy.webp" width="480" height="1039" loading="lazy" alt="Pastillero: doses do dia, uma atrasada e as já tomadas"></a>
+            <a href="/capturas/pastillero-medicamentos.webp" target="_blank" rel="noopener"><img src="/capturas/pastillero-medicamentos.webp" width="480" height="1039" loading="lazy" alt="Pastillero: lista de medicamentos com horários e aviso de estoque baixo"></a>
+          </div>
+          <div class="links"><a href="/pastillero/privacidad.html">Política de privacidade (em espanhol)</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="bloque" id="forma-de-trabajo">
+      <div class="bloque-head">
+        <h2>Como trabalho</h2>
+        <p>Quatro etapas, com o sistema funcionando desde as primeiras semanas para você testar com os seus dados.</p>
+      </div>
+      <ol class="pasos">
+        <li><h3>Entender</h3><p>Você me conta como a equipe trabalha hoje e o que quer resolver. Anoto as regras do negócio antes de escrever uma linha de código.</p></li>
+        <li><h3>Construir com você acompanhando</h3><p>Cada avanço é publicado e você testa. O que não serve é mudado na hora.</p></li>
+        <li><h3>Entregar</h3><p>Carga inicial de dados, treinamento por função e um manual em linguagem simples.</p></li>
+        <li><h3>Manter</h3><p>Atualizações, backups e ajustes por uma mensalidade combinada com antecedência.</p></li>
+      </ol>
+    </section>
+
+    <section class="bloque" id="sobre-mi">
+      <div class="bloque-head">
+        <h2>Sobre mim</h2>
+        <p>Por trás da JPProyectos estou eu, Juan Riverón: quem atende você é quem constrói o seu sistema.</p>
+      </div>
+      <div class="sobre">
+        <div class="texto">
+          <p>Desenvolvo software desde 2024 e trabalho para clientes desde 2025. Minha base técnica vem do ensino médio técnico em tecnologia (UTU) e da formação como técnico em redes.</p>
+          <p>Também me formei como analista de seguros e tenho experiência em <strong>vendas e atendimento ao cliente</strong>. Disso trago algo que aplico em cada projeto: ouvir primeiro, explicar sem termos técnicos e cumprir o que prometo.</p>
+          <p>Gosto de trabalhar de forma <strong>profissional e próxima</strong>: que você saiba em que pé está o seu sistema, tenha a quem escrever e que a confiança e a qualidade estejam presentes desde o primeiro dia.</p>
+        </div>
+        <dl class="datos">
+          <div class="dato"><dt>Formação</dt><dd>Ensino médio técnico em tecnologia (UTU) · Técnico em redes · Analista de seguros</dd></div>
+          <div class="dato"><dt>Experiência</dt><dd>Desenvolvimento de software desde 2024; projetos para clientes desde 2025. Vendas e atendimento ao cliente em seguros.</dd></div>
+          <div class="dato"><dt>Onde</dt><dd>Montevidéu, Uruguai. Trabalho remotamente com clientes de qualquer lugar.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="bloque" id="datos">
+      <div class="bloque-head">
+        <h2>Seus dados, protegidos</h2>
+        <p>O que fica guardado em cada sistema é da empresa, e está protegido.</p>
+      </div>
+      <dl class="datos">
+        <div class="dato"><dt>Servidores na região</dt><dd>Banco de dados e servidores em São Paulo.</dd></div>
+        <div class="dato"><dt>Backup todos os dias</dt><dd>Cópias criptografadas diárias e um teste mensal de que podem ser restauradas.</dd></div>
+        <div class="dato"><dt>Acesso controlado</dt><dd>Cada usuário vê só o que lhe cabe, com verificação em duas etapas disponível.</dd></div>
+        <div class="dato"><dt>Sempre seus</dt><dd>Exportação completa dos dados a qualquer momento. Em conformidade com a Lei 18.331 de Proteção de Dados Pessoais do Uruguai.</dd></div>
+      </dl>
+    </section>
+
+    <section class="bloque" id="preguntas">
+      <div class="bloque-head">
+        <h2>Perguntas frequentes</h2>
+        <p>O que costumam perguntar antes de começar.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Quanto custa um sistema?</summary>
+          <p>Depende do que você precisa, por isso não há preços de tabela. Depois de uma primeira conversa envio um orçamento sem custo, com preço fechado pelo desenvolvimento e uma mensalidade fixa pela manutenção. Você sabe de antemão quanto vai pagar. Para empresas fora do Uruguai, o preço é sempre em dólares americanos.</p>
+        </details>
+        <details>
+          <summary>Quanto tempo leva?</summary>
+          <p>O trabalho é feito por etapas, e a primeira parte fica funcionando em poucas semanas para você testar com os seus dados. Um sistema completo vai sendo montado aos poucos, sem esperar meses para ver resultado. O prazo de cada etapa fica escrito no orçamento.</p>
+        </details>
+        <details>
+          <summary>De quem são os dados e o sistema?</summary>
+          <p>Os dados são sempre da sua empresa e você pode baixá-los completos a qualquer momento. O sistema é usado com uma licença enquanto o serviço estiver ativo; assim posso mantê-lo, melhorá-lo e responder por ele.</p>
+        </details>
+        <details>
+          <summary>E se eu quiser cancelar o serviço?</summary>
+          <p>Basta avisar com 30 dias de antecedência. Nesse período você leva todos os seus dados em arquivos que abrem no Excel ou em outros programas, para não ficar preso a nada.</p>
+        </details>
+        <details>
+          <summary>E se algo falhar?</summary>
+          <p>Você me escreve e eu resolvo conforme a gravidade: se o sistema não pode ser usado, a resposta vem em horas; se incomoda mas dá para trabalhar, no mesmo dia útil; e as dúvidas, em até três dias úteis. Além disso, tudo tem backup diário.</p>
+        </details>
+        <details>
+          <summary>Preciso entender de tecnologia para usar?</summary>
+          <p>Não. Cada sistema é entregue com treinamento para cada pessoa de acordo com o que ela faz e um manual em linguagem simples. E se alguém travar, é só me escrever.</p>
+        </details>
+        <details>
+          <summary>Você trabalha com empresas fora do Uruguai?</summary>
+          <p>Sim. Trabalho remotamente, com reuniões por videochamada. Para empresas do exterior, o preço é sempre em dólares americanos.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="bloque" id="contacto">
+      <div class="contacto">
+        <h2>Tem algo para organizar?</h2>
+        <p>Conte em poucas linhas o que a sua empresa faz e o que gostaria de resolver. Respondo no mesmo dia.</p>
+        <form class="formulario" method="post" action="/api/contacto">
+          <input type="hidden" name="idioma" value="pt">
+          <label>Nome
+            <input name="nombre" required maxlength="100" autocomplete="name">
+          </label>
+          <label>E-mail
+            <input name="email" type="email" required maxlength="200" autocomplete="email">
+          </label>
+          <label class="ancho"><span>Empresa <span class="opcional">(opcional)</span></span>
+            <input name="empresa" maxlength="120" autocomplete="organization">
+          </label>
+          <label class="ancho">O que você gostaria de resolver?
+            <textarea name="mensaje" required minlength="10" maxlength="3000"></textarea>
+          </label>
+          <div class="trampa" aria-hidden="true">
+            <label>Não preencher <input name="sitio_web" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <div class="pie">
+            <button class="btn" type="submit">Enviar mensagem</button>
+            <p>Uso seus dados só para responder; nada fica guardado no site.</p>
+          </div>
+        </form>
+        <p class="alternativa">Ou escreva para <a href="mailto:contacto@jpproyectos.com.uy">contacto@jpproyectos.com.uy</a></p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 JPProyectos · Juan Riverón · Montevideo, Uruguay</span>
+    <span>As visitas são medidas de forma anônima, sem cookies.</span>
+    <a href="/pastillero/privacidad.html">Privacidade do Pastillero (em espanhol)</a>
+  </div>
+</footer>
+</body>
+</html>
