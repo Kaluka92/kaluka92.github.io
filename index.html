@@ -103,6 +103,12 @@ h2 { font: 600 clamp(24px, 3.4vw, 32px)/1.15 var(--display); letter-spacing: -.0
 .dato dt { font: 600 15.5px/1.3 var(--body); }
 .dato dd { margin: 0; color: var(--soft); font-size: 15px; }
 
+.sobre { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 28px; align-items: start; }
+.sobre .texto { display: grid; gap: 14px; max-width: 62ch; min-width: 0; }
+.sobre .texto p { margin: 0; color: var(--soft); font-size: 17px; }
+.sobre .texto p strong { color: var(--fg); font-weight: 600; }
+.sobre .datos { grid-template-columns: 1fr; }
+
 /* Contacto */
 .contacto { background: var(--ink); color: var(--on-ink); border-radius: 18px; padding: 40px clamp(22px, 5vw, 48px); display: grid; gap: 18px; }
 .contacto h2 { color: inherit; }
@@ -128,6 +134,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#productos">Productos</a></li>
         <li><a href="#forma-de-trabajo">Cómo trabajo</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -228,6 +235,25 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <li><h3>Entregar</h3><p>Carga inicial de datos, capacitación por rol y un manual en palabras simples.</p></li>
         <li><h3>Mantener</h3><p>Actualizaciones, respaldos y ajustes por una mensualidad acordada de antemano.</p></li>
       </ol>
+    </section>
+
+    <section class="bloque" id="sobre-mi">
+      <div class="bloque-head">
+        <h2>Sobre mí</h2>
+        <p>Detrás de JPProyectos estoy yo, Juan Riverón: quien te atiende es quien construye tu sistema.</p>
+      </div>
+      <div class="sobre">
+        <div class="texto">
+          <p>Desarrollo software desde 2024 y trabajo para clientes desde 2025. Mi base técnica viene del Bachillerato Tecnológico de UTU y de la formación como técnico en redes.</p>
+          <p>Además, me formé como analista en seguros y tengo experiencia en <strong>venta y atención a clientes</strong>. De ahí traigo algo que aplico en cada proyecto: escuchar primero, explicar sin tecnicismos y cumplir lo que se promete.</p>
+          <p>Me gusta trabajar de forma <strong>profesional y cercana</strong>: que sepas en qué está tu sistema, que tengas a quién escribirle y que la confianza y la calidad estén desde el primer día.</p>
+        </div>
+        <dl class="datos">
+          <div class="dato"><dt>Formación</dt><dd>Bachillerato Tecnológico (UTU) · Técnico en redes · Analista en seguros</dd></div>
+          <div class="dato"><dt>Experiencia</dt><dd>Desarrollo de software desde 2024; proyectos para clientes desde 2025. Venta y atención a clientes en seguros.</dd></div>
+          <div class="dato"><dt>Dónde</dt><dd>Montevideo, Uruguay. Trabajo en forma remota con clientes de cualquier lugar.</dd></div>
+        </dl>
+      </div>
     </section>
 
     <section class="bloque" id="datos">
