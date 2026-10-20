@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://jpproyectos.com.uy/</loc><lastmod>2026-10-18</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://jpproyectos.com.uy/</loc><lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jpproyectos.com.uy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jpproyectos.com.uy/en"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jpproyectos.com.uy/pt"/>
+  </url>
+  <url>
+    <loc>https://jpproyectos.com.uy/en</loc><lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jpproyectos.com.uy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jpproyectos.com.uy/en"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jpproyectos.com.uy/pt"/>
+  </url>
+  <url>
+    <loc>https://jpproyectos.com.uy/pt</loc><lastmod>2026-10-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jpproyectos.com.uy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jpproyectos.com.uy/en"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jpproyectos.com.uy/pt"/>
+  </url>
   <url><loc>https://jpproyectos.com.uy/pastillero/privacidad.html</loc><lastmod>2026-10-18</lastmod></url>
 </urlset>

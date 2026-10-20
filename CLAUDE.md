@@ -14,7 +14,8 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - Marca en `marca/` (copiada de `~/Documents/JPProyectos/marca/`): `marca-animada.svg` en el encabezado, `marca.svg` y `marca-32.png` como favicon, `marca-192.png` para iPhone, `compartir.png` (1200 × 630) para la vista previa de los enlaces.
 
 ## Estructura
-- `index.html` — la página principal (servicios, trabajos y productos, cómo trabajo, datos, contacto).
+- `index.html` — la página principal en español (servicios, trabajos y productos, cómo trabajo, sobre mí, datos, preguntas, contacto).
+- **Idiomas:** `en/index.html` (inglés) y `pt/index.html` (portugués de Brasil) se **generan** desde `index.html` con `python3 .github/scripts/idiomas/generar.py` y las traducciones de `.github/scripts/idiomas/textos.py`. **No editarlas a mano:** al cambiar un texto en español, corregir su par en `textos.py` y regenerar; el CI (`generar.py --revisar`) falla si falta una traducción o si están desactualizadas. Direcciones sin barra final (`/en`, `/pt`: el sitio tiene `trailingSlash: false`), `hreflang` en las tres y en `sitemap.xml`, selector ES·EN·PT arriba. El formulario manda `idioma` y la función responde con `/en/gracias.html`, `/pt/contacto-error.html`, etc. (también traducidas, a mano).
 - `pastillero/privacidad.html` — política de privacidad de Pastillero. Si cambia lo que hace la app con los datos, actualizarla y cambiar la fecha de vigencia.
 - `api/contacto.mjs` — **formulario de contacto** (función de Vercel): valida (`api/_contacto.mjs`, con tests en `test/`), descarta spam (campo trampa `sitio_web`, más de 3 enlaces) sin avisar, acepta solo envíos desde el sitio o sus vistas previas, y manda el mail con **Resend** desde `web@jpproyectos.com.uy` a `contacto@` (ImprovMX → Gmail) con "responder a" la persona. No guarda nada. Variables en Vercel: `RESEND_API_KEY` (clave "sitio-jpproyectos", solo envío, dominio jpproyectos.com.uy) y opcional `CONTACTO_DESTINO`. Respuestas: `gracias.html` y `contacto-error.html` (noindex).
 - `google70995f6349117a4d.html` — verificación de Google Search Console. No borrar.
@@ -86,3 +87,8 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 
 ### 2026-10-20 — Gestor UY en gestor.jpproyectos.com.uy (Claude Code, Opus)
 - **Qué (paso 7 del plan):** CNAME `gestor` en Antel → Vercel (proyecto gestor-uy, mismo equipo), y el enlace "Abrir Gestor UY" apunta al subdominio. En gestor-uy (PR #69) las URL absolutas pasan al dominio y `gestor-uy.vercel.app` redirige con 301.
+
+### 2026-10-20 — Versiones en inglés y portugués (Claude Code, Opus)
+- **Qué (paso 9 del plan, pedido del usuario: inglés y portugués):** `/en` y `/pt` generadas desde la portada en español (109 textos traducidos por Claude, portugués de Brasil), con `hreflang`, sitemap con alternativas, selector de idioma y páginas de gracias/error por idioma. En inglés/portugués la pregunta de precios dice que para el exterior es siempre en dólares (no menciona pesos) y Gestor UY aclara que es para Uruguay y en español. No se afirma en qué idiomas se hacen las reuniones (el usuario no lo dijo).
+- **De paso:** el chequeo de enlaces resolvía mal las rutas que empiezan con "/" dentro de subcarpetas.
+- **Pendiente:** que el usuario (o alguien nativo) revise las traducciones.

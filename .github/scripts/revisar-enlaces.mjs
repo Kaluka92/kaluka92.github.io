@@ -3,7 +3,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
-const paginas = ["index.html", "pastillero/privacidad.html", "gracias.html", "contacto-error.html"];
+const paginas = ["index.html", "pastillero/privacidad.html", "gracias.html", "contacto-error.html", "en/index.html", "pt/index.html", "en/gracias.html", "pt/gracias.html", "en/contacto-error.html", "pt/contacto-error.html"];
 let errores = 0;
 for (const pagina of paginas) {
   const html = readFileSync(pagina, "utf8");
@@ -12,7 +12,9 @@ for (const pagina of paginas) {
     // Rutas que sirve Vercel, no archivos del repo: /_vercel/ (medición de visitas) y /api/ (funciones).
     if (/^\/(_vercel|api)\//.test(ruta)) continue;
     const limpia = ruta.split("#")[0].split("?")[0];
-    const destino = join(dirname(pagina), limpia.endsWith("/") || limpia === "" ? join(limpia, "index.html") : limpia);
+    // Las rutas que empiezan con "/" son desde la raíz del sitio; las demás, desde la carpeta de la página.
+    const desde = limpia.startsWith("/") ? "." : dirname(pagina);
+    const destino = join(desde, limpia.endsWith("/") || limpia === "" ? join(limpia, "index.html") : limpia);
     if (!existsSync(destino)) {
       console.error(`::error file=${pagina}::No existe ${ruta}`);
       errores++;
