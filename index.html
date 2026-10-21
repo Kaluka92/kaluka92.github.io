@@ -14,7 +14,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="marca/marca-32.png">
 <link rel="apple-touch-icon" href="marca/marca-192.png">
 <meta name="theme-color" content="#0f1b2d">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-7e74b1P+fmjn2mKaSTfaL8pkHaq9RTJJHCgFIUt9nFQ='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_UY">
@@ -155,6 +155,7 @@ h2 { font: 600 clamp(24px, 3.4vw, 32px)/1.15 var(--display); letter-spacing: -.0
 footer { padding-block: 36px calc(36px + env(safe-area-inset-bottom, 0px)); color: var(--soft); font-size: 14px; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
 </style>
+<script>(function(){var n=0;function m(t,r,x){if(n++>=6)return;try{var c=navigator.connection||{};navigator.sendBeacon("/api/imagen-rota",JSON.stringify({tipo:t,recurso:String(r||"").replace(location.origin,""),pagina:location.pathname,detalle:x||"",pantalla:screen.width+"x"+screen.height,conexion:(c.effectiveType||"")+(c.saveData?" ahorro-datos":"")}))}catch(e){}}addEventListener("error",function(e){var t=e.target;if(t&&t.tagName==="IMG")m("imagen",t.currentSrc||t.src)},true);addEventListener("securitypolicyviolation",function(e){m("seguridad",e.blockedURI,e.effectiveDirective)});addEventListener("load",function(){var i=document.images;for(var k=0;k<i.length;k++){if(i[k].complete&&i[k].naturalWidth===0&&i[k].getAttribute("loading")!=="lazy")m("imagen-vacia",i[k].currentSrc||i[k].src)}})})();</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
