@@ -222,7 +222,7 @@
   <div class="metadatos">
     <div class="metadato">
       <span class="metadato-etiqueta">Vigencia</span>
-      <span class="metadato-valor" id="fecha-vigencia">18 de octubre de 2026</span>
+      <span class="metadato-valor" id="fecha-vigencia">[fecha en que se publique la función]</span>
     </div>
     <div class="metadato">
       <span class="metadato-etiqueta">Versión de la app</span>
@@ -257,7 +257,7 @@
     <span class="clausula-numero">02</span>
     <div class="clausula-cuerpo">
       <h2>Dónde vive esa información</h2>
-      <p>Todo se guarda exclusivamente en el almacenamiento local del dispositivo, usando el almacenamiento privado del sistema operativo. Pastillero no tiene servidor propio, tus datos nunca salen del celular y no funciona con una cuenta de usuario ni inicio de sesión.</p>
+      <p>Todo se guarda en el almacenamiento local del dispositivo, usando el almacenamiento privado del sistema operativo. Para usar Pastillero no hace falta cuenta ni inicio de sesión, y si no activás "Compartir con la familia" (ver más abajo), tus datos nunca salen del celular.</p>
       <p>Lo único que la app consulta por internet, al abrirse, es si hay una versión nueva disponible. Para eso se comunica con los servidores de Expo, el servicio con el que se publican las actualizaciones, y envía solo datos técnicos (la versión de la app y el sistema operativo). Esa consulta nunca incluye tus datos ni los de tus medicamentos.</p>
       <p>Esto también significa que si desinstalás la app, cambiás de celular o restaurás de fábrica sin haber exportado una copia, esa información se pierde: no hay una copia en la nube que la recupere.</p>
     </div>
@@ -266,6 +266,20 @@
   <section class="clausula">
     <span class="clausula-numero">03</span>
     <div class="clausula-cuerpo">
+      <h2>Cuenta y fichas compartidas (opcional)</h2>
+      <p>Si querés que otras personas (por ejemplo, tu familia o un cuidador) vean y actualicen una ficha desde su propio celular, podés crear una cuenta con tu email y activar "Compartir con la familia" para esa ficha. Es opcional: sin cuenta, la app funciona igual.</p>
+      <ul>
+        <li><strong>Cuenta:</strong> se guarda tu email para enviarte el código de ingreso (no hay contraseña). El servidor está en Supabase, en São Paulo (Brasil), y los emails con el código se envían con Resend.</li>
+        <li><strong>Fichas compartidas:</strong> los datos de la ficha (persona, medicamentos, horarios y tomas) viajan y se guardan <strong>cifrados de punta a punta</strong>. La clave de cada ficha queda solo en los celulares de quienes la comparten y pasa de uno a otro dentro de la invitación (código QR o texto). Ni Pastillero ni el proveedor del servidor pueden leer esos datos. El servidor solo sabe qué cuentas comparten cada ficha y cuándo se hizo cada cambio.</li>
+        <li><strong>Invitaciones:</strong> sirven una sola vez y vencen a las 48 horas. Quien tenga una invitación puede ver la ficha, así que mandala solo a quien quieras sumar.</li>
+      </ul>
+      <p>Podés dejar de compartir una ficha en cualquier momento; si eras la última persona, se borra del servidor. Desde Ajustes → Cuenta podés <strong>borrar tu cuenta</strong>: se elimina del servidor junto con tus fichas compartidas (lo guardado en tu celular no se toca). También podés pedir el borrado escribiendo a <a href="mailto:contacto@jpproyectos.com.uy">contacto@jpproyectos.com.uy</a>.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">04</span>
+    <div class="clausula-cuerpo">
       <h2>Copias de seguridad</h2>
       <p>Desde Ajustes podés exportar manualmente un archivo con todos tus datos, para guardarlo donde prefieras (por ejemplo, en tu email o en un servicio de almacenamiento en la nube que ya uses). Ese archivo se genera y se comparte usando las funciones nativas de tu celular; Pastillero no tiene acceso a dónde termine guardado ni a su contenido una vez compartido.</p>
       <p>La persona usuaria es responsable de guardar y proteger ese archivo, ya que contiene información de salud.</p>
@@ -273,31 +287,32 @@
   </section>
 
   <section class="clausula">
-    <span class="clausula-numero">04</span>
+    <span class="clausula-numero">05</span>
     <div class="clausula-cuerpo">
       <h2>Permisos que pide la app</h2>
       <p>Pastillero pide los siguientes permisos del sistema operativo, y solo para lo que indican:</p>
       <div>
         <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>Notificaciones</span>
         <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Face ID / huella</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Cámara</span>
       </div>
-      <p style="margin-top:14px">Las notificaciones se usan únicamente para avisarte a la hora programada de cada toma; se generan y procesan en el propio celular. Face ID o huella dactilar (si los activás en Ajustes) se usan solo para desbloquear la app localmente, a través de las funciones de seguridad del sistema operativo: Pastillero nunca recibe ni guarda tu huella o tu rostro, esa información la maneja el propio sistema operativo.</p>
-    </div>
-  </section>
-
-  <section class="clausula">
-    <span class="clausula-numero">05</span>
-    <div class="clausula-cuerpo">
-      <h2>Terceros, analítica y publicidad</h2>
-      <p>Pastillero no muestra anuncios y no vende ni comparte tu información con nadie.</p>
-      <p>Desde Ajustes → "Analíticas anónimas" podés elegir, de forma completamente voluntaria, ayudarnos a mejorar la app compartiendo estadísticas de uso genéricas (por ejemplo, qué tan seguido se usan ciertas funciones), usando PostHog como proveedor de analítica. Esta opción viene <strong>apagada por defecto</strong>: solo se activa si vos la activás a mano, y podés desactivarla cuando quieras desde el mismo lugar.</p>
-      <p>Aunque la actives, esos eventos nunca incluyen tu nombre, el nombre de tus medicamentos o suplementos, dosis, horarios, ni ningún otro dato de salud o identificable — ni tampoco se usa ningún identificador que te vincule a vos como persona (no iniciás sesión ni te identificás de ninguna forma). Es la única función de la app que envía información fuera del celular, y solo si vos decidís habilitarla.</p>
-      <p class="muted">Fuera de esta opción, Pastillero no integra ningún otro SDK de terceros ni seguimiento publicitario.</p>
+      <p style="margin-top:14px">Las notificaciones se usan únicamente para avisarte a la hora programada de cada toma; se generan y procesan en el propio celular. Face ID o huella dactilar (si los activás en Ajustes) se usan solo para desbloquear la app localmente, a través de las funciones de seguridad del sistema operativo: Pastillero nunca recibe ni guarda tu huella o tu rostro, esa información la maneja el propio sistema operativo. La cámara se usa solo para leer el código QR de una invitación a una ficha compartida, y solo si vos tocás "Escanear código QR": no se toman ni se guardan fotos.</p>
     </div>
   </section>
 
   <section class="clausula">
     <span class="clausula-numero">06</span>
+    <div class="clausula-cuerpo">
+      <h2>Terceros, analítica y publicidad</h2>
+      <p>Pastillero no muestra anuncios y no vende ni comparte tu información con nadie.</p>
+      <p>Desde Ajustes → "Analíticas anónimas" podés elegir, de forma completamente voluntaria, ayudarnos a mejorar la app compartiendo estadísticas de uso genéricas (por ejemplo, qué tan seguido se usan ciertas funciones), usando PostHog como proveedor de analítica. Esta opción viene <strong>apagada por defecto</strong>: solo se activa si vos la activás a mano, y podés desactivarla cuando quieras desde el mismo lugar.</p>
+      <p>Aunque la actives, esos eventos nunca incluyen tu nombre, el nombre de tus medicamentos o suplementos, dosis, horarios, ni ningún otro dato de salud o identificable — ni tampoco se usa ningún identificador que te vincule a vos como persona (no iniciás sesión ni te identificás de ninguna forma). Junto con la cuenta y las fichas compartidas (que van cifradas, ver arriba), es lo único que envía información fuera del celular, y solo si vos decidís habilitarlo.</p>
+      <p class="muted">Fuera de esta opción, Pastillero no integra ningún otro SDK de terceros ni seguimiento publicitario.</p>
+    </div>
+  </section>
+
+  <section class="clausula">
+    <span class="clausula-numero">07</span>
     <div class="clausula-cuerpo">
       <h2>Menores de edad</h2>
       <p>Un cuidador puede usar Pastillero para gestionar los medicamentos de otra persona, incluida una hija, hijo o familiar menor de edad, siempre bajo la responsabilidad del adulto que carga esa ficha. La app no está dirigida a que un menor la use ni la configure por sí mismo.</p>
@@ -305,7 +320,7 @@
   </section>
 
   <section class="clausula">
-    <span class="clausula-numero">07</span>
+    <span class="clausula-numero">08</span>
     <div class="clausula-cuerpo">
       <h2>Aviso importante sobre el contenido</h2>
       <p>Pastillero es una herramienta de organización y recordatorio. No brinda consejo médico, no reemplaza a un profesional de la salud y no debe usarse para tomar decisiones sobre tratamientos. Ante cualquier duda sobre una medicación, consultá a tu médico o farmacéutico.</p>
@@ -313,15 +328,15 @@
   </section>
 
   <section class="clausula">
-    <span class="clausula-numero">08</span>
+    <span class="clausula-numero">09</span>
     <div class="clausula-cuerpo">
       <h2>Eliminar tus datos</h2>
-      <p>Podés borrar la información de una ficha (y sus medicamentos e historial) en cualquier momento desde la propia app, tocando "Eliminar ficha". Desinstalar la app elimina también todo lo que tenía guardado localmente, ya que no queda ninguna copia en ningún otro lugar.</p>
+      <p>Podés borrar la información de una ficha (y sus medicamentos e historial) en cualquier momento desde la propia app, tocando "Eliminar ficha". Desinstalar la app elimina también todo lo que tenía guardado localmente. Si tenés cuenta, borrala desde Ajustes → Cuenta antes de desinstalar (o pedilo a <a href="mailto:contacto@jpproyectos.com.uy">contacto@jpproyectos.com.uy</a>) para que no quede nada en el servidor.</p>
     </div>
   </section>
 
   <section class="clausula">
-    <span class="clausula-numero">09</span>
+    <span class="clausula-numero">10</span>
     <div class="clausula-cuerpo">
       <h2>Cambios a esta política</h2>
       <p>Si esta política cambia, se actualizará la fecha de vigencia al principio de esta misma página. Te recomendamos revisarla de tanto en tanto si te interesa saber cómo maneja tus datos la app.</p>
