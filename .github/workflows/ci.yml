@@ -14,5 +14,6 @@ jobs:
         with:
           node-version: 24
       - run: node .github/scripts/revisar-enlaces.mjs
+      - run: node .github/scripts/listar-imagenes.mjs --revisar
       - run: node --test test/*.test.mjs
       - run: python3 .github/scripts/idiomas/generar.py --revisar

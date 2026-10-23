@@ -97,3 +97,9 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 ### 2026-10-20 — Aviso de imágenes rotas (Claude Code, Opus)
 - **Por qué:** a una persona con Android (Redmi, Chrome) no le cargaba ninguna imagen del sitio, ni en incógnito, aunque la imagen abierta sola sí se veía; en el celular del usuario (mismo modelo) y en simulaciones de iPhone/Android todo cargaba. El servidor entrega bien (200, tipos correctos) y no hay firewall en Vercel. Sin poder reproducirlo, se mide: el aviso registra cada imagen que falla y bloqueos de la CSP, para saber si le pasa a más gente y por qué.
 - **Pendiente:** revisar los logs `[imagen-rota]` en unos días; si el problema es el formato (WebP/SVG), sumar PNG/JPG de respaldo con `<picture>`.
+
+### 2026-10-22 — Imágenes rotas: aviso por mail (Claude Code, Opus)
+- **Problema:** el aviso de imágenes rotas (PR #19) solo escribía `[imagen-rota]` en los logs de Vercel, y en el plan Hobby los logs **duran ~30 minutos**: revisarlos "en unos días" no podía funcionar (el 2026-10-22 la consulta de 3 días dio "outside the available retention").
+- **Arreglo:** `api/imagen-rota.mjs` manda cada aviso por mail (Resend, `sitio@jpproyectos.com.uy` → contacto@). Lógica pura en `api/_imagen.mjs` (5 tests): solo rutas de imágenes del propio sitio; los bloqueos de seguridad se agrupan por directiva; `Idempotency-Key` = día + tipo + imagen, así que llega como mucho un mail por imagen y por día y nadie puede gastar el cupo de Resend que comparten el formulario, GIDE y el CRM.
+- **Pendiente:** esperar mails `[sitio] imagen: …` del Redmi que no cargaba imágenes y decidir (ej. `<picture>` con JPG de respaldo si es el formato WebP).
+
