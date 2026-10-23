@@ -12,13 +12,13 @@ test("una imagen del sitio que no carga genera un aviso agrupado por día e imag
 });
 
 test("el mismo aviso con otro navegador cae en la misma clave (no gasta más mails)", () => {
-  const a = avisoDeImagen({ tipo: "imagen", recurso: "/capturas/a.webp" }, "uno", "2026-10-22");
-  const b = avisoDeImagen({ tipo: "imagen", recurso: "/capturas/a.webp?v=2" }, "otro", "2026-10-22");
+  const a = avisoDeImagen({ tipo: "imagen", recurso: "/marca/marca.svg" }, "uno", "2026-10-22");
+  const b = avisoDeImagen({ tipo: "imagen", recurso: "/marca/marca.svg?v=2" }, "otro", "2026-10-22");
   assert.equal(a.clave, b.clave);
 });
 
 test("rechaza rutas que no son imágenes del sitio", () => {
-  for (const recurso of ["https://otro.com/x.png", "/capturas/x.exe", "/../secreto.png", "", "/a".repeat(80) + ".png"]) {
+  for (const recurso of ["https://otro.com/x.png", "/capturas/x.exe", "/../secreto.png", "", "/capturas/inventada-123.webp", "/a".repeat(80) + ".png"]) {
     assert.equal(avisoDeImagen({ tipo: "imagen", recurso }, UA), null, recurso);
   }
 });
@@ -28,6 +28,7 @@ test("los bloqueos de seguridad se agrupan solo por directiva", () => {
   const b = avisoDeImagen({ tipo: "seguridad", recurso: "https://otro.example/y.js", detalle: "script-src-elem" }, UA, "2026-10-22");
   assert.equal(a.clave, b.clave);
   assert.equal(avisoDeImagen({ tipo: "seguridad", detalle: "<script>" }, UA), null);
+  assert.equal(avisoDeImagen({ tipo: "seguridad", detalle: "directiva-inventada" }, UA), null);
 });
 
 test("tipos desconocidos o datos rotos no generan aviso", () => {
