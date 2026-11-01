@@ -109,3 +109,8 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 ### 2026-10-23 — Dependabot de seguridad (Claude Code, Sonnet)
 - Se agregó `.github/dependabot.yml` (solo actualizaciones de seguridad, sin PRs por cada versión nueva; esas las hace la rutina de los lunes). Motivo: la revisión de seguridad del 23/10 vio que este repo no lo tenía y una corrección de seguridad puede salir entre dos corridas de las rutinas (caso certifi en control-restos).
 - Pendiente del usuario: confirmar que "Dependabot security updates" esté activado en Settings → Code security.
+
+### 2026-11-01 — Seguimiento de la auditoría quincenal (Claude Code, Opus)
+- **Contexto:** la rutina del 25/10 sí corrió (informe: https://claude.ai/artifact/KDLz5DK85PBnKfYj73pnFh). Esto es el seguimiento local de sus hallazgos, más lo que ella no podía ver (configuración de GitHub y de Vercel). Solo lectura. No corrí los tests localmente: me baso en el CI de `main`, en verde.
+- **Bien:** `main` protegida, secret scanning y push protection activos, 0 alertas de secretos, sin secretos nuevos. Encabezados de producción correctos (CSP, HSTS con preload, nosniff, X-Frame-Options, Permissions-Policy).
+- **Sigue pendiente:** `/api/contacto` sin límite de envíos: el Firewall de Vercel de `jpproyectos-web` no está configurado y el cupo de mails de Resend se comparte con las otras apps. El regex de origen acepta cualquier `jpproyectos-web-*.vercel.app`. Acciones sin SHA y `ci.yml` sin `permissions:`. PR #20: abierto a propósito hasta publicar la función de cuentas.
