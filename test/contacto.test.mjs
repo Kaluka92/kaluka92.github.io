@@ -42,7 +42,12 @@ test("corta los textos largos", () => {
 test("solo acepta envíos desde el sitio y sus vistas previas", () => {
   assert.equal(origenPermitido("https://jpproyectos.com.uy"), true);
   assert.equal(origenPermitido("https://www.jpproyectos.com.uy"), true);
+  process.env.VERCEL_BRANCH_URL = "jpproyectos-web-git-formulario-jpproyectos.vercel.app";
   assert.equal(origenPermitido("https://jpproyectos-web-git-formulario-jpproyectos.vercel.app"), true);
+  delete process.env.VERCEL_BRANCH_URL;
+  assert.equal(origenPermitido("https://jpproyectos-web-git-formulario-jpproyectos.vercel.app"), false);
+  // Cualquiera puede crear un proyecto de Vercel con un nombre parecido.
+  assert.equal(origenPermitido("https://jpproyectos-web-malo.vercel.app"), false);
   assert.equal(origenPermitido("https://otro-sitio.com"), false);
   assert.equal(origenPermitido("https://jpproyectos.com.uy.evil.com"), false);
   assert.equal(origenPermitido("http://jpproyectos.com.uy"), false);

@@ -42,13 +42,13 @@ export function validarContacto(campos) {
   return { ok: true, datos };
 }
 
-/** Solo se aceptan envíos desde el propio sitio (o sus vistas previas de Vercel). */
+/** Solo se aceptan envíos desde el propio sitio o desde esta misma vista previa de Vercel (no alcanza con que el nombre se parezca). */
 export function origenPermitido(origen) {
   if (!origen) return false;
   try {
     const { protocol, hostname } = new URL(origen);
     if (protocol !== "https:") return hostname === "localhost";
-    return hostname === "jpproyectos.com.uy" || hostname === "www.jpproyectos.com.uy" || /^jpproyectos-web-[a-z0-9-]+\.vercel\.app$/.test(hostname);
+    return hostname === "jpproyectos.com.uy" || hostname === "www.jpproyectos.com.uy" || hostname === process.env.VERCEL_URL || hostname === process.env.VERCEL_BRANCH_URL;
   } catch {
     return false;
   }
