@@ -10,8 +10,18 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - HTML y CSS a mano, sin build. **Vercel** (equipo `jpproyectos`, proyecto `jpproyectos-web`, conectado a este repo) publica `main` en **https://jpproyectos.com.uy/**; cada PR tiene su preview. `vercel.json`: encabezados de seguridad (CSP con `frame-ancestors 'none'`, HSTS, nosniff, Referrer y Permissions-Policy) y `www` → dominio sin www.
 - Dominio `jpproyectos.com.uy`: comprado en Antel (nic.com.uy, cuenta del usuario, vence el 2027-10-18, renovar). DNS en el panel de Antel: A `@` → `216.198.79.1` y `64.29.17.1`, CNAME `www` → `cname.vercel-dns.com.` (TTL 1 h). TXT `@` `google-site-verification=…` (Search Console, propiedad de dominio: no borrar); Resend (región São Paulo): TXT `resend._domainkey` (DKIM), CNAME `send` → `send.forge.rmta.net.` y `rsend` → `rsend-sae1.forge.rmta.net.`, TXT `_dmarc` `v=DMARC1; p=none;`. Ojo: el panel de Antel dijo "ya existe" al crear `send` habiendo `rsend` y además lo había creado sin mostrarlo: revisar la lista recargada antes de reintentar y TXT `_github-pages-challenge-Kaluka92` (verificación del dominio en GitHub; inofensivo).
 - `kaluka92.github.io` (GitHub Pages, rama `gh-pages`): solo páginas que redirigen a las mismas rutas en el dominio nuevo, porque Play Console y el trámite del D-U-N-S tienen esa dirección. Esa rama tiene su propio `vercel.json` con `deploymentEnabled: false`, y el de `main` también la excluye: Vercel no la publica.
-- Fuentes de Google Fonts: Unbounded (títulos), Instrument Sans (texto), IBM Plex Mono (etiquetas).
-- Marca en `marca/` (copiada de `~/Documents/JPProyectos/marca/`): `marca-animada.svg` en el encabezado, `marca.svg` y `marca-32.png` como favicon, `marca-192.png` para iPhone, `compartir.png` (1200 × 630) para la vista previa de los enlaces.
+- Fuentes de Google Fonts: Unbounded (títulos), Instrument Sans (texto), IBM Plex Mono (solo datos reales: estado de cada trabajo, pie de la captura, números de las etapas).
+- Marca en `marca/` (copiada de `~/Documents/JPProyectos/marca/`): `marca-oscuro.svg` en el encabezado (la marca animada queda en el repo, sin usar: el único movimiento es el cursor del título), `marca.svg` y `marca-32.png` como favicon, `marca-192.png` para iPhone, `compartir.png` (1200 × 630) para la vista previa de los enlaces.
+
+## Diseño
+Dirección de arte (estándar de JPProyectos, aprobada por el usuario el 2026-11-02). Es el brief: cualquier cambio de la portada la respeta.
+- **Para quién:** dueños de pymes e instituciones. Primero ven pruebas reales y después escriben.
+- **Idea:** "obra terminada, con el cursor encendido". Manda el trabajo real; el cursor celeste al final del título es lo único que se mueve (6 parpadeos y queda fijo; sin movimiento con `prefers-reduced-motion`).
+- **Color:** tinta `#0f1b2d` en las bandas (apertura, cómo trabajo, contacto y pie), papel frío `#f4f6f9`, pizarra `#4f5b6d` para texto secundario. Celeste `#4aa3df` solo para lo que se toca y el cursor; sobre papel, `#1d6ea8` para llegar a contraste AA.
+- **Tipos:** ver Stack. Sin mayúsculas decorativas ni etiquetas sobre cada título.
+- **Estructura:** título enorme; captura real que sale por el borde derecho y cruza de la tinta al papel; trabajos en filas alternadas; servicios en lista; etapas en una línea que no termina, porque el mantenimiento sigue; sin foto personal (decisión del usuario).
+- **Evitar:** grillas de tarjetas iguales, degradés, vidrio, emojis, "soluciones innovadoras", y mezclar en la portada imágenes de banco.
+- **Ojo con los textos:** las traducciones buscan el fragmento de HTML exacto, así que los estilos van por la clase del contenedor y no se tocan las etiquetas internas.
 
 ## Estructura
 - `index.html` — la página principal en español (servicios, trabajos y productos, cómo trabajo, sobre mí, datos, preguntas, contacto).
@@ -76,7 +86,7 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 
 ### 2026-10-20 — Capturas del sistema de gestión y tarjeta del CRM de seguros (Claude Code, Opus)
 - **Qué:** pedido del usuario: capturas de GIDE (Panel y Rentabilidad) y una tarjeta nueva "CRM para una corredora de seguros" (Resumen y Pólizas), todo con datos inventados en bases locales (empresa ficticia "Andes Equipos y Obras", clientes y pólizas de ejemplo) y sin nombre, logo ni colores de los clientes. "Trabajos y productos" pasó a dos columnas (4 tarjetas). Se agregó al contrato de GIDE la autorización para mostrar pantallas con datos ficticios (cláusula DÉCIMA), todavía sin firmar.
-- **Hallazgos en otros repos (no corregidos acá):** GIDE tiene "Marrua Group SAS — resumen general" fijo en `panel/page.tsx` (debería usar el nombre de la empresa); crm-web no tiene en el repo la migración 012 (`mensajes_colaborador`), así que no se puede reconstruir la base desde las migraciones.
+- **Hallazgos en otros repos (no corregidos acá):** GIDE tiene el nombre del cliente fijo en `panel/page.tsx` (debería usar el nombre de la empresa); crm-web no tiene en el repo la migración 012 (`mensajes_colaborador`), así que no se puede reconstruir la base desde las migraciones.
 
 ### 2026-10-20 — Formulario de contacto (Claude Code, Opus)
 - **Qué (paso 5 del plan):** formulario en `#contacto` (nombre, mail, empresa opcional, mensaje) que manda con Resend a contacto@; el mail directo queda como alternativa. Dominio verificado en Resend (cuenta del usuario, la misma del CRM; plan gratis: 3.000 mails/mes, 100/día, 3 dominios). Probado con `vercel dev`: válido sin clave → error (log "falta RESEND_API_KEY"), trampa → gracias sin enviar, mail inválido → error, otro origen → 403. Capturas a 1280 y 390 px, claro y oscuro, sin desborde (había uno de 714 px en celular: el form necesitaba `min-width: 0`).
@@ -117,3 +127,10 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 
 ### 2026-11-01 — Origen del formulario (Claude Code, Opus)
 - **`origenPermitido`:** ya no acepta cualquier `jpproyectos-web-*.vercel.app`, porque cualquiera puede crear un proyecto con ese nombre. Ahora compara con `VERCEL_URL` y `VERCEL_BRANCH_URL` del propio deploy. Con los dominios de producción no cambia nada.
+
+### 2026-11-02 — Rediseño de la portada (Claude Code, Opus)
+- **Pedido del usuario:** probar la skill `frontend-design` y el estándar de diseño rediseñando todo el sitio, con una mezcla de "obra terminada" y "consola". La dirección de arte quedó arriba, en **Diseño**.
+- **Qué cambió:** portada en los 3 idiomas (mismo contenido, nuevo orden: trabajos antes que servicios) y páginas de gracias y de error. Textos nuevos: "desde Uruguay" sin punto medio, pie de la captura ("con datos de ejemplo"), "Saltar al contenido" y "Trabajos" en el menú. La política de Pastillero conserva su identidad a propósito.
+- **Auditoría `design-is` (hecha a mano, sin escribir sus archivos en este repo público):** salieron y se corrigieron el borde de los campos del formulario (contraste 1,52:1), la falta de enlace para saltar al contenido y la escala de letra con tamaños de más.
+- **Limpieza:** se sacó de esta bitácora un nombre de cliente que seguía escrito. Sigue en el historial de git; borrarlo de ahí requiere reescribirlo (decisión del usuario).
+- **Sin probar:** envío real del formulario (no se tocaron los campos ni la función), un celular real y el Redmi que no cargaba imágenes. Las capturas son de 960 px: se ven algo blandas en pantallas de alta densidad; conviene rehacerlas al doble si se quiere mejorar.

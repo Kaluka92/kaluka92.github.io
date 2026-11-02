@@ -13,25 +13,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&family=Instrument+Sans:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-:root { --bg: #f6f8fb; --surface: #ffffff; --fg: #0f1b2d; --soft: #4f5b6d; --line: #dde3ec; --celeste: #2f86c4; color-scheme: light; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #0b121e; --surface: #121c2c; --fg: #e9eef5; --soft: #9fabbd; --line: #233148; --celeste: #6cb6ea; color-scheme: dark; } }
-:root[data-theme="dark"] { --bg: #0b121e; --surface: #121c2c; --fg: #e9eef5; --soft: #9fabbd; --line: #233148; --celeste: #6cb6ea; color-scheme: dark; }
-body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--fg); font: 17px/1.6 "Instrument Sans", "Segoe UI", system-ui, sans-serif; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
-main { max-width: 560px; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 36px clamp(22px, 5vw, 40px); display: grid; gap: 14px; }
-img { width: 52px; height: 52px; }
-.eyebrow { font: 500 12.5px/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--celeste); }
-h1 { font: 700 clamp(26px, 5vw, 34px)/1.15 "Unbounded", "Arial Black", system-ui, sans-serif; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
-p, ul { margin: 0; color: var(--soft); }
+:root { color-scheme: dark; }
+body { margin: 0; min-height: 100vh; display: grid; align-items: center; background: #0f1b2d; color: #eef2f7; font: 17px/1.6 "Instrument Sans", "Segoe UI", system-ui, sans-serif; -webkit-font-smoothing: antialiased; padding: 32px max(20px, calc((100vw - 1200px) / 2)); box-sizing: border-box; }
+main { max-width: 760px; display: grid; gap: 16px; }
+img { width: 44px; height: 44px; margin-bottom: 12px; }
+.eyebrow { color: #a9b6c8; font-size: 16px; }
+h1 { font: 700 clamp(30px, 5.4vw, 56px)/1.06 "Unbounded", "Arial Black", system-ui, sans-serif; letter-spacing: -.03em; margin: 0 0 6px; text-wrap: balance; }
+h1::after { content: ""; display: inline-block; width: .56em; height: .1em; margin-left: .1em; background: #4aa3df; }
+p, ul { margin: 0; color: #a9b6c8; max-width: 58ch; }
 ul { padding-left: 20px; display: grid; gap: 4px; }
 a { color: inherit; text-underline-offset: 3px; }
-.volver { font-weight: 600; margin-top: 6px; }
+a:focus-visible { outline: 2px solid #4aa3df; outline-offset: 3px; border-radius: 4px; }
+.volver { font-weight: 600; margin-top: 10px; justify-self: start; color: #eef2f7; display: inline-block; padding-block: 8px; }
 </style>
 <script>(function(){var n=0;function m(t,r,x){if(n++>=6)return;try{var c=navigator.connection||{};navigator.sendBeacon("/api/imagen-rota",JSON.stringify({tipo:t,recurso:String(r||"").replace(location.origin,""),pagina:location.pathname,detalle:x||"",pantalla:screen.width+"x"+screen.height,conexion:(c.effectiveType||"")+(c.saveData?" ahorro-datos":"")}))}catch(e){}}addEventListener("error",function(e){var t=e.target;if(t&&t.tagName==="IMG")m("imagen",t.currentSrc||t.src)},true);addEventListener("securitypolicyviolation",function(e){m("seguridad",e.blockedURI,e.effectiveDirective)});addEventListener("load",function(){var i=document.images;for(var k=0;k<i.length;k++){if(i[k].complete&&i[k].naturalWidth===0&&i[k].getAttribute("loading")!=="lazy")m("imagen-vacia",i[k].currentSrc||i[k].src)}})})();</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 <main>
-  <img src="/marca/marca.svg" alt="" width="52" height="52">
+  <img src="/marca/marca-oscuro.svg" alt="" width="52" height="52">
   <div class="eyebrow">Mensagem enviada</div>
   <h1>Obrigado! Recebi a sua mensagem.</h1>
   <p>Respondo no mesmo dia, no e-mail que você deixou. Se não encontrar a resposta, verifique a pasta de spam.</p>
