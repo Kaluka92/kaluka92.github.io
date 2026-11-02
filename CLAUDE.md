@@ -114,3 +114,6 @@ Sitio público de JPProyectos (Juan Riverón): presentación como estudio de sof
 - **Contexto:** la rutina del 25/10 sí corrió (informe: https://claude.ai/artifact/KDLz5DK85PBnKfYj73pnFh). Esto es el seguimiento local de sus hallazgos, más lo que ella no podía ver (configuración de GitHub y de Vercel). Solo lectura. No corrí los tests localmente: me baso en el CI de `main`, en verde.
 - **Bien:** `main` protegida, secret scanning y push protection activos, 0 alertas de secretos, sin secretos nuevos. Encabezados de producción correctos (CSP, HSTS con preload, nosniff, X-Frame-Options, Permissions-Policy).
 - **Sigue pendiente:** `/api/contacto` sin límite de envíos: el Firewall de Vercel de `jpproyectos-web` no está configurado y el cupo de mails de Resend se comparte con las otras apps. El regex de origen acepta cualquier `jpproyectos-web-*.vercel.app`. Acciones sin SHA y `ci.yml` sin `permissions:`. PR #20: abierto a propósito hasta publicar la función de cuentas.
+
+### 2026-11-01 — Origen del formulario (Claude Code, Opus)
+- **`origenPermitido`:** ya no acepta cualquier `jpproyectos-web-*.vercel.app`, porque cualquiera puede crear un proyecto con ese nombre. Ahora compara con `VERCEL_URL` y `VERCEL_BRANCH_URL` del propio deploy. Con los dominios de producción no cambia nada.
