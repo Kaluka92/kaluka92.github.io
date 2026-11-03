@@ -3,7 +3,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
-const paginas = ["index.html", "pastillero/privacidad.html", "gracias.html", "contacto-error.html", "en/index.html", "pt/index.html", "en/gracias.html", "pt/gracias.html", "en/contacto-error.html", "pt/contacto-error.html"];
+const paginas = ["index.html", "seguros/index.html", "pastillero/privacidad.html", "gracias.html", "contacto-error.html", "en/index.html", "pt/index.html", "en/gracias.html", "pt/gracias.html", "en/contacto-error.html", "pt/contacto-error.html"];
 let errores = 0;
 for (const pagina of paginas) {
   const html = readFileSync(pagina, "utf8");
