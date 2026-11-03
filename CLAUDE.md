@@ -24,6 +24,7 @@ Dirección de arte (estándar de JPProyectos, aprobada por el usuario el 2026-11
 - **Ojo con los textos:** las traducciones buscan el fragmento de HTML exacto, así que los estilos van por la clase del contenedor y no se tocan las etiquetas internas.
 
 ## Estructura
+- `seguros/index.html` — página de Seguros (solo español): teléfonos y datos de cada compañía, a mano.
 - `index.html` — la página principal en español (servicios, trabajos y productos, cómo trabajo, sobre mí, datos, preguntas, contacto).
 - **Idiomas:** `en/index.html` (inglés) y `pt/index.html` (portugués de Brasil) se **generan** desde `index.html` con `python3 .github/scripts/idiomas/generar.py` y las traducciones de `.github/scripts/idiomas/textos.py`. **No editarlas a mano:** al cambiar un texto en español, corregir su par en `textos.py` y regenerar; el CI (`generar.py --revisar`) falla si falta una traducción o si están desactualizadas. Direcciones sin barra final (`/en`, `/pt`: el sitio tiene `trailingSlash: false`), `hreflang` en las tres y en `sitemap.xml`, selector ES·EN·PT arriba. El formulario manda `idioma` y la función responde con `/en/gracias.html`, `/pt/contacto-error.html`, etc. (también traducidas, a mano).
 - `pastillero/privacidad.html` — política de privacidad de Pastillero. Si cambia lo que hace la app con los datos, actualizarla y cambiar la fecha de vigencia.
@@ -134,3 +135,12 @@ Dirección de arte (estándar de JPProyectos, aprobada por el usuario el 2026-11
 - **Auditoría `design-is` (hecha a mano, sin escribir sus archivos en este repo público):** salieron y se corrigieron el borde de los campos del formulario (contraste 1,52:1), la falta de enlace para saltar al contenido y la escala de letra con tamaños de más.
 - **Limpieza:** se sacó de esta bitácora un nombre de cliente que seguía escrito. Sigue en el historial de git; borrarlo de ahí requiere reescribirlo (decisión del usuario).
 - **Sin probar:** envío real del formulario (no se tocaron los campos ni la función), un celular real y el Redmi que no cargaba imágenes. Las capturas son de 960 px: se ven algo blandas en pantallas de alta densidad; conviene rehacerlas al doble si se quiere mejorar.
+
+### 2026-11-02 — Pestaña Seguros (Claude Code, Opus)
+- **Pedido del usuario:** una pestaña "Seguros" con su trayectoria, logos, información, teléfonos comerciales y de siniestros y enlaces de cada compañía.
+- **Qué se hizo:** página nueva `seguros/index.html` (dirección `/seguros`, solo en español porque es para clientes de Uruguay), logos en `seguros/logos/`, sitemap y revisión de enlaces. En la portada de los 3 idiomas se suma la pestaña. **Cambio de menú:** debajo de 1000 px el menú ya no se oculta: quedan a la vista Seguros y Contacto (`nav li:not(:nth-last-child(-n+2))`), porque si no la pestaña no existía en el celular.
+- **Fuentes (2026-11-02):** direcciones y teléfonos centrales del [registro de empresas de seguros del BCU](https://www.bcu.gub.uy/Servicios-Financieros-SSF/Paginas/empresas_Seguros.aspx); números de siniestros del sitio de cada compañía. **Al cambiar un número, cambiar también la fecha "Revisados el" de la página.** Los logos se bajaron de los sitios oficiales y van sobre blanco también en modo oscuro.
+- **Falta confirmar con el usuario:** el 0800 de siniestros de Barbuss (ex HDI): el dominio viejo `hdi.com.uy` no responde, un resultado de búsqueda decía 0800 2777 y no se pudo verificar, así que se publica el central 2916 0850. Barbuss.com además lista Rincón 602 / 2916 4040, distinto del BCU (Misiones 1549 / 2916 0850); se usó el BCU. Que "Urban Travel" sea Urban Global Travel. Si incluir su número de registro como corredor.
+- **Riesgo a decidir antes de publicar:** uso de logos de terceros (conviene el OK de cada compañía o de su manual de marca).
+- **Sin probar:** celular real y cabeceras reales de Vercel en esta página. Los números no se llamaron.
+

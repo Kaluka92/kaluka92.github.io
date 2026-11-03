@@ -9,6 +9,7 @@ T = [
 # encabezado
 ('<a class="saltar" href="#inicio">Saltar al contenido</a>', '<a class="saltar" href="#inicio">Skip to content</a>', '<a class="saltar" href="#inicio">Pular para o conteúdo</a>'),
 ('aria-label="JPProyectos, inicio"', 'aria-label="JPProyectos, home"', 'aria-label="JPProyectos, início"'),
+('<a href="/seguros" hreflang="es">Seguros</a>', '<a href="/seguros" hreflang="es">Insurance</a>', '<a href="/seguros" hreflang="es">Seguros</a>'),
 ('<nav aria-label="Secciones">', '<nav aria-label="Sections">', '<nav aria-label="Seções">'),
 ('<li><a href="#servicios">Servicios</a></li>', '<li><a href="#servicios">Services</a></li>', '<li><a href="#servicios">Serviços</a></li>'),
 ('<li><a href="#productos">Trabajos</a></li>', '<li><a href="#productos">Work</a></li>', '<li><a href="#productos">Trabalhos</a></li>'),
