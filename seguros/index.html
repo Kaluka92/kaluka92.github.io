@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>JPProyectos · Seguros en Uruguay</title>
-<meta name="description" content="Juan Riverón, analista en seguros y corredor de seguros con más de 15 años en el rubro. Teléfonos comerciales y de siniestros de cada compañía con la que trabaja en Uruguay.">
+<title>RF Seguros · Corredor de seguros en Uruguay</title>
+<meta name="description" content="RF Seguros: Juan Riverón, analista en seguros y corredor de seguros con más de 15 años en el rubro. Teléfonos comerciales y de siniestros de cada compañía con la que trabaja en Uruguay.">
 <link rel="canonical" href="https://jpproyectos.com.uy/seguros">
 <link rel="icon" type="image/svg+xml" href="/marca/marca.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/marca/marca-32.png">
@@ -14,8 +14,8 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_UY">
-<meta property="og:title" content="JPProyectos · Seguros en Uruguay">
-<meta property="og:description" content="Corredor de seguros con más de 15 años en el rubro. Teléfonos comerciales y de siniestros de cada compañía.">
+<meta property="og:title" content="RF Seguros · Corredor de seguros en Uruguay">
+<meta property="og:description" content="RF Seguros, corredor de seguros con más de 15 años en el rubro. Teléfonos comerciales y de siniestros de cada compañía.">
 <meta property="og:url" content="https://jpproyectos.com.uy/seguros">
 <meta property="og:image" content="https://jpproyectos.com.uy/marca/compartir.png">
 <meta property="og:image:width" content="1200">
@@ -112,11 +112,22 @@ h1::after { content: ""; display: inline-block; width: .56em; height: .1em; marg
 .telefonos .nota { display: block; }
 
 .final { background: var(--tinta); color: var(--sobre-tinta); }
-.final .wrap { display: grid; gap: 16px; justify-items: start; }
-.final h2 { max-width: 22ch; }
-.final p { color: var(--sobre-tinta-suave); max-width: 52ch; }
-.btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; font: 600 16px/1.2 var(--body); padding: 14px 20px; border-radius: 8px; margin-top: 8px; background: var(--celeste); color: var(--tinta); }
-.btn:hover { background: var(--celeste-hover); }
+.final .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 36px clamp(32px, 6vw, 80px); align-items: start; }
+.invitacion { display: grid; gap: 16px; }
+.invitacion p { color: var(--sobre-tinta-suave); max-width: 44ch; }
+.btn { display: inline-flex; align-items: center; justify-content: center; font: 600 16px/1.2 var(--body); padding: 14px 20px; border-radius: 8px; border: 1px solid var(--celeste); background: var(--celeste); color: var(--tinta); cursor: pointer; }
+.btn:hover { background: var(--celeste-hover); border-color: var(--celeste-hover); }
+button:focus-visible { outline: 2px solid var(--celeste); outline-offset: 3px; border-radius: 4px; }
+.formulario { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; min-width: 0; }
+.formulario label { display: grid; gap: 6px; font-size: 15px; font-weight: 500; min-width: 0; }
+.formulario .ancho { grid-column: 1 / -1; }
+.formulario input, .formulario textarea { font: 400 16px/1.4 var(--body); color: var(--sobre-tinta); background: #17263c; border: 1px solid #6b7f9c; border-radius: 8px; padding: 12px 14px; width: 100%; }
+.formulario textarea { min-height: 150px; resize: vertical; }
+.formulario input:focus, .formulario textarea:focus { outline: 2px solid var(--celeste); outline-offset: 1px; }
+.formulario .opcional { font-weight: 400; color: var(--sobre-tinta-suave); }
+.formulario .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.formulario .pie { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.formulario .pie p { font-size: 14px; color: var(--sobre-tinta-suave); }
 
 footer { background: var(--tinta); color: var(--sobre-tinta-suave); font-size: 14px; padding-bottom: env(safe-area-inset-bottom, 0px); }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; padding-block: 24px; border-top: 1px solid var(--linea-tinta); }
@@ -130,7 +141,7 @@ footer a { text-underline-offset: 3px; }
   html { scroll-padding-top: 104px; }
 }
 @media (max-width: 900px) {
-  .apertura-cuerpo, .compania { grid-template-columns: minmax(0, 1fr); }
+  .apertura-cuerpo, .compania, .final .wrap { grid-template-columns: minmax(0, 1fr); }
   .logos { margin-bottom: -60px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   #companias { padding-top: 124px; }
 }
@@ -138,6 +149,8 @@ footer a { text-underline-offset: 3px; }
   .logo { gap: 8px; }
   .logo span { font-size: 15px; }
   .logos a { height: 84px; padding: 14px 12px; }
+  .formulario { grid-template-columns: minmax(0, 1fr); }
+  .btn { flex: 1 1 auto; }
 }
 </style>
 <script>(function(){var n=0;function m(t,r,x){if(n++>=6)return;try{var c=navigator.connection||{};navigator.sendBeacon("/api/imagen-rota",JSON.stringify({tipo:t,recurso:String(r||"").replace(location.origin,""),pagina:location.pathname,detalle:x||"",pantalla:screen.width+"x"+screen.height,conexion:(c.effectiveType||"")+(c.saveData?" ahorro-datos":"")}))}catch(e){}}addEventListener("error",function(e){var t=e.target;if(t&&t.tagName==="IMG")m("imagen",t.currentSrc||t.src)},true);addEventListener("securitypolicyviolation",function(e){m("seguridad",e.blockedURI,e.effectiveDirective)});addEventListener("load",function(){var i=document.images;for(var k=0;k<i.length;k++){if(i[k].complete&&i[k].naturalWidth===0&&i[k].getAttribute("loading")!=="lazy")m("imagen-vacia",i[k].currentSrc||i[k].src)}})})();</script>
@@ -159,7 +172,7 @@ footer a { text-underline-offset: 3px; }
         <li><a href="/#forma-de-trabajo">Cómo trabajo</a></li>
         <li><a href="/#sobre-mi">Sobre mí</a></li>
         <li><a href="/seguros" aria-current="page">Seguros</a></li>
-        <li><a href="/#contacto">Contacto</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
   </div>
@@ -168,11 +181,11 @@ footer a { text-underline-offset: 3px; }
 <main id="inicio">
   <section class="apertura">
     <div class="wrap">
-      <p class="bajada">Corredor de seguros en Uruguay</p>
+      <p class="bajada">RF Seguros, corredor de seguros en Uruguay</p>
       <h1>En seguros desde 2010</h1>
       <div class="apertura-cuerpo">
         <div class="lead">
-          <p>Soy Juan Riverón, analista en seguros y corredor de seguros, con más de 15 años en el rubro. Actualmente trabajo con todas las compañías de esta página.</p>
+          <p>Soy Juan Riverón, de RF Seguros: analista en seguros y corredor de seguros, con más de 15 años en el rubro. Actualmente trabajo con todas las compañías de esta página.</p>
           <p><strong>¿Tuviste un siniestro?</strong> Tocá el logo de tu compañía y llamá al número de siniestros. Si hay heridos, llamá primero al 911.</p>
         </div>
         <ul class="logos" aria-label="Compañías">
@@ -349,18 +362,42 @@ footer a { text-underline-offset: 3px; }
     </div>
   </section>
 
-  <section class="final bloque">
+  <section class="final bloque" id="contacto">
     <div class="wrap">
-      <h2>¿Querés cotizar o revisar tu seguro?</h2>
-      <p>Contame qué necesitás asegurar y te respondo yo.</p>
-      <a class="btn" href="/#contacto">Escribirme</a>
+      <div class="invitacion">
+        <h2>¿Querés cotizar o revisar tu seguro?</h2>
+        <p>Contame qué necesitás asegurar y te respondo yo, desde RF Seguros.</p>
+      </div>
+      <form class="formulario" method="post" action="/api/contacto">
+        <input type="hidden" name="idioma" value="es">
+        <input type="hidden" name="area" value="seguros">
+        <label>Nombre
+          <input name="nombre" required maxlength="100" autocomplete="name">
+        </label>
+        <label>Mail
+          <input name="email" type="email" required maxlength="200" autocomplete="email">
+        </label>
+        <label class="ancho"><span>Empresa <span class="opcional">(opcional)</span></span>
+          <input name="empresa" maxlength="120" autocomplete="organization">
+        </label>
+        <label class="ancho">¿Qué querés asegurar?
+          <textarea name="mensaje" required minlength="10" maxlength="3000"></textarea>
+        </label>
+        <div class="trampa" aria-hidden="true">
+          <label>No completar <input name="sitio_web" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <div class="pie">
+          <button class="btn" type="submit">Enviar consulta</button>
+          <p>Uso tus datos solo para responderte; no se guardan en el sitio.</p>
+        </div>
+      </form>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Juan Riverón, JPProyectos. Montevideo, Uruguay.</span>
+    <span>© 2026 Juan Riverón, RF Seguros. Montevideo, Uruguay.</span>
     <span>Las visitas se miden de forma anónima, sin cookies.</span>
     <span>Los logos y marcas pertenecen a cada compañía.</span>
   </div>

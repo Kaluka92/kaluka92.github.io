@@ -54,13 +54,20 @@ export function origenPermitido(origen) {
   }
 }
 
-export function armarMail(datos, destino) {
+/** A qué casilla va la consulta. El formulario solo elige el área: la dirección nunca sale del navegador. */
+export function destinoConsulta(area, env = process.env) {
+  if (area === "seguros" && env.SEGUROS_DESTINO) return env.SEGUROS_DESTINO;
+  return env.CONTACTO_DESTINO || "contacto@jpproyectos.com.uy";
+}
+
+export function armarMail(datos, destino, area) {
+  const seguros = area === "seguros";
   const empresa = datos.empresa ? `\nEmpresa: ${datos.empresa}` : "";
   return {
     from: "Formulario web <web@jpproyectos.com.uy>",
     to: [destino],
     reply_to: datos.email,
-    subject: `Consulta web: ${datos.nombre}${datos.empresa ? ` (${datos.empresa})` : ""}`,
-    text: `Nombre: ${datos.nombre}\nMail: ${datos.email}${empresa}\n\n${datos.mensaje}\n\n—\nEnviado desde el formulario de https://jpproyectos.com.uy. Respondé este mail para contestarle.`,
+    subject: `${seguros ? "Consulta de seguros" : "Consulta web"}: ${datos.nombre}${datos.empresa ? ` (${datos.empresa})` : ""}`,
+    text: `Nombre: ${datos.nombre}\nMail: ${datos.email}${empresa}\n\n${datos.mensaje}\n\n—\nEnviado desde el formulario de https://jpproyectos.com.uy${seguros ? "/seguros" : ""}. Respondé este mail para contestarle.`,
   };
 }

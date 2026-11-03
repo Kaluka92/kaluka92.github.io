@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { armarMail, origenPermitido, validarContacto } from "../api/_contacto.mjs";
+import { armarMail, destinoConsulta, origenPermitido, validarContacto } from "../api/_contacto.mjs";
 
 const bien = { nombre: "Ana Pérez", email: "ana@ejemplo.com.uy", empresa: "Taller Sur", mensaje: "Quiero ordenar las órdenes de trabajo del taller." };
 
@@ -60,4 +60,20 @@ test("el mail sale del dominio y la respuesta va a la persona", () => {
   assert.equal(m.reply_to, "ana@ejemplo.com.uy");
   assert.deepEqual(m.to, ["contacto@jpproyectos.com.uy"]);
   assert.match(m.text, /Empresa: Taller Sur/);
+});
+
+test("las consultas de seguros van a su casilla; el navegador no puede elegir otra", () => {
+  const env = { SEGUROS_DESTINO: "seguros@ejemplo.com", CONTACTO_DESTINO: "general@ejemplo.com" };
+  assert.equal(destinoConsulta("seguros", env), "seguros@ejemplo.com");
+  assert.equal(destinoConsulta(undefined, env), "general@ejemplo.com");
+  assert.equal(destinoConsulta("otro@malo.com", env), "general@ejemplo.com");
+  // Sin la variable no se pierde la consulta: va a la casilla general.
+  assert.equal(destinoConsulta("seguros", {}), "contacto@jpproyectos.com.uy");
+});
+
+test("el mail de seguros se distingue en el asunto", () => {
+  const m = armarMail(validarContacto(bien).datos, "seguros@ejemplo.com", "seguros");
+  assert.match(m.subject, /^Consulta de seguros: Ana Pérez/);
+  assert.match(m.text, /jpproyectos\.com\.uy\/seguros/);
+  assert.match(armarMail(validarContacto(bien).datos, "c@d.com", "cualquiera").subject, /^Consulta web:/);
 });

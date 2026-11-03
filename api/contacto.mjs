@@ -1,7 +1,8 @@
 // Formulario de contacto: recibe el POST de la portada, valida y manda el
 // mensaje con Resend a contacto@ (ImprovMX lo reenvía al Gmail del usuario).
-// No guarda nada. Variables en Vercel: RESEND_API_KEY y, opcional, CONTACTO_DESTINO.
-import { armarMail, origenPermitido, validarContacto } from "./_contacto.mjs";
+// No guarda nada. Variables en Vercel: RESEND_API_KEY, SEGUROS_DESTINO (consultas de
+// /seguros) y, opcional, CONTACTO_DESTINO.
+import { armarMail, destinoConsulta, origenPermitido, validarContacto } from "./_contacto.mjs";
 
 const volver = (ruta) => new Response(null, { status: 303, headers: { Location: ruta } });
 
@@ -34,7 +35,7 @@ export async function POST(request) {
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${clave}`, "Content-Type": "application/json" },
-      body: JSON.stringify(armarMail(resultado.datos, process.env.CONTACTO_DESTINO || "contacto@jpproyectos.com.uy")),
+      body: JSON.stringify(armarMail(resultado.datos, destinoConsulta(campos.area), campos.area)),
       signal: AbortSignal.timeout(8000),
     });
     if (!r.ok) {
