@@ -38,6 +38,7 @@ Dirección de arte (estándar de JPProyectos, aprobada por el usuario el 2026-11
 - Seguridad: el único JavaScript es el de medición de visitas de Vercel (`/_vercel/insights/script.js`, del propio dominio: `script-src 'self'`, `connect-src 'self'`); el formulario es un POST común (`form-action 'self'`); la política de seguridad está en `vercel.json` (encabezado) y repetida en un `<meta>` de cada página. Si algún día hace falta uno, ajustar esa política. El año del pie es fijo: cambiarlo cada enero.
 - **Medición de visitas:** Vercel Web Analytics (plan Hobby: 50.000 eventos/mes para todo el equipo, 30 días de historial, sin cookies; si se pasa, deja de medir, no cobra). Activada en el panel del proyecto; el script va en el `<head>` de cada página (también `gracias.html`, que cuenta los formularios enviados). Aviso en el pie de la portada.
 - `sitemap.xml` y `robots.txt` para Google: al sumar una página, agregarla al sitemap.
+- **Límite del formulario (Firewall de Vercel, `jpproyectos-web`):** regla «Limite contacto por IP», `/api/contacto`, **3 pedidos por hora por IP** (fixed window). Protege el cupo diario de Resend que comparten el sitio, GIDE y el CRM. El conector MCP de Vercel no lee el Firewall: verlo con `npx vercel --scope jpproyectos firewall rules list --project jpproyectos-web`. Cambiarlo: `firewall rules update … --data '<JSON>'` (los flags sueltos de límite no se aplicaron) y `firewall publish`, que pide confirmación humana.
 - `main` = publicado: los cambios van por rama + PR y el usuario los ve antes de mergear (es público).
 - **El repo es público:** nada de nombres de clientes, datos de contacto privados ni notas internas en este archivo ni en ningún otro. Los casos de clientes van sin nombre salvo permiso escrito.
 - No publicar el teléfono sin que el usuario lo pida; el contacto público es **contacto@jpproyectos.com.uy**.
@@ -146,3 +147,9 @@ Dirección de arte (estándar de JPProyectos, aprobada por el usuario el 2026-11
 - **Formulario:** el usuario envió una prueba desde la vista previa y llegó a la casilla de RF Seguros.
 - **Sin probar:** los números no se llamaron.
 
+
+### 2026-11-15 — Límite del formulario: ya existía, ahora 3 por hora (Claude Code, Opus)
+- **Contexto:** la auditoría del 2026-11-10 marcó «`/api/contacto` sin límite de envíos». **Era un falso positivo:** el Firewall ya tenía la regla «Limite contacto por IP» (5 cada 10 min por IP), pero el conector de Vercel no puede leer el Firewall (da 404) y se dio por faltante. Se vio con la CLI.
+- **Cambio (OK de Juan):** 5 cada 10 min dejaba llegar a 30 por hora desde una sola IP (el cupo de Resend es 100 por día, compartido). Ahora **3 por hora por IP**. Publicado con la CLI.
+- **Probado en producción** con pedidos sin `Origin`, que la función rechaza antes de mandar mail (no gastan Resend): `403 403 403 429 429`; la portada sigue en 200.
+- **No cubre:** muchas IPs a la vez. Si aparece abuso real, lo más sólido es una cuenta de Resend aparte para el sitio (cupo propio; la crea Juan y suma DNS en Antel).
