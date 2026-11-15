@@ -146,3 +146,8 @@ Dirección de arte (estándar de JPProyectos, aprobada por el usuario el 2026-11
 - **Formulario:** el usuario envió una prueba desde la vista previa y llegó a la casilla de RF Seguros.
 - **Sin probar:** los números no se llamaron.
 
+### 2026-11-15 — Política de Pastillero al día con la 1.6.0 (borrador, NO mergear hasta publicar) (Claude Code, Sonnet)
+- **Qué faltaba:** `pastillero/privacidad.html` (vigencia 18/10, versión 1.5.6) solo listaba notificaciones y Face ID/huella, y la app (1.6.0, `app.json`) declara además `SCHEDULE_EXACT_ALARM` (alarmas exactas, las concede el usuario) y `CAMERA` (solo para el QR de una ficha compartida, función de cuentas). Ahora: versión 1.6.0, vigencia 15/11/2026, dos chips nuevos y dos párrafos (alarmas exactas; cámara declarada pero **sin uso ni pedido en la versión sin cuentas**, con el compromiso de actualizar la política antes de usarla).
+- **Verificado:** tests del sitio 15/15; página a 1280 y 390 px sin scroll lateral (captura revisada). **No verificado contra la app instalada** que la cámara no se pida nunca en el build público (por código, solo la abre `UnirseFichaScreen`, que depende de `CUENTAS_HABILITADAS`).
+- **Al publicar:** poner como vigencia el día de la publicación, mergear junto con la 1.6.0 en Play, y actualizar `tienda/ficha-play-store.md` del repo de la app. Decisión de Juan pendiente: sacar `CAMERA` del build público (requiere un build nativo nuevo) para que la app no declare un permiso que no usa.
+
