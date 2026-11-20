@@ -1,0 +1,6 @@
+# Si encontraste una falla de seguridad en jpproyectos.com.uy o en Gestor UY, escribinos.
+# Respondemos en español o en inglés. Pedimos no acceder a datos de terceros ni afectar el servicio.
+Contact: mailto:contacto@jpproyectos.com.uy
+Expires: 2027-11-19T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://jpproyectos.com.uy/.well-known/security.txt
