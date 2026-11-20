@@ -58,8 +58,8 @@ test("los SVG tienen width y height propios (si no, Firefox da 0 de ancho y el a
   for (const dir of ["marca", "seguros/logos"]) {
     for (const f of readdirSync(dir).filter((n) => n.endsWith(".svg"))) {
       const raiz = readFileSync(join(dir, f), "utf8").match(/<svg\b[^>]*>/)?.[0] ?? "";
-      assert.match(raiz, /\swidth="[\d.]+"/, `${dir}/${f}: falta width`);
-      assert.match(raiz, /\sheight="[\d.]+"/, `${dir}/${f}: falta height`);
+      assert.match(raiz, /\swidth="[\d.]+(px)?"/, `${dir}/${f}: falta width`);
+      assert.match(raiz, /\sheight="[\d.]+(px)?"/, `${dir}/${f}: falta height`);
     }
   }
 });
